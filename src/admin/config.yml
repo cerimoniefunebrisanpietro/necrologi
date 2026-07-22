@@ -1,0 +1,39 @@
+backend:
+  name: github
+  repo: INSERISCI_USERNAME_GITHUB/INSERISCI_NOME_REPOSITORY
+  branch: main
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+site_url: "https://cerimoniefunebrisanpietro.netlify.app"
+display_url: "https://cerimoniefunebrisanpietro.netlify.app"
+logo_url: "/assets/logo.jpg"
+locale: "it"
+
+collections:
+  - name: "necrologi"
+    label: "Necrologi"
+    label_singular: "Necrologio"
+    folder: "src/necrologi"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{nome_completo}} — {{data_decesso}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "necrologio.njk"}
+      - {label: "Nome e cognome", name: "nome_completo", widget: "string"}
+      - {label: "Fotografia", name: "foto", widget: "image", choose_url: false}
+      - {label: "Data di nascita", name: "data_nascita", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD"}
+      - {label: "Data del decesso", name: "data_decesso", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD"}
+      - {label: "Sommario breve", name: "sommario", widget: "text"}
+      - {label: "Testo del necrologio", name: "body", widget: "markdown"}
+      - {label: "Data e ora del Rosario", name: "rosario_data", widget: "datetime", required: false, date_format: "DD/MM/YYYY", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ss"}
+      - {label: "Luogo del Rosario", name: "rosario_luogo", widget: "string", required: false}
+      - {label: "Data e ora del funerale", name: "funerale_data", widget: "datetime", date_format: "DD/MM/YYYY", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ss"}
+      - {label: "Luogo del funerale", name: "funerale_luogo", widget: "string"}
+      - {label: "Destinazione", name: "destinazione", widget: "string", required: false}
+      - {label: "Note", name: "note", widget: "text", required: false}
+      - {label: "Autorizzazione della famiglia acquisita", name: "autorizzazione_famiglia", widget: "boolean", default: false}
+      - {label: "Pubblicato", name: "pubblicato", widget: "boolean", default: true}

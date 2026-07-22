@@ -1,0 +1,81 @@
+GESTIONALE NECROLOGI – CERIMONIE FUNEBRI SAN PIETRO
+
+QUESTO PACCHETTO NON VA CARICATO COME SEMPLICE ZIP SUL VECCHIO SITO.
+IL PANNELLO /ADMIN/ HA BISOGNO DI UN REPOSITORY GITHUB COLLEGATO A NETLIFY.
+
+FUNZIONI INCLUSE
+- Pannello riservato /admin/
+- Creazione, modifica, pubblicazione e cancellazione necrologi
+- Caricamento fotografie
+- Elenco automatico dei necrologi
+- Pagina automatica per ogni defunto
+- QR code automatico e scaricabile
+- Modulo condoglianze Netlify Forms
+- Moderazione manuale dei messaggi nella dashboard Netlify
+- Layout responsive per telefono e computer
+
+PRIMA CONFIGURAZIONE
+
+1. CREA UN ACCOUNT GITHUB
+   Vai su github.com e crea un account, se non ne possiedi già uno.
+
+2. CREA UN NUOVO REPOSITORY
+   Nome consigliato:
+   cerimonie-funebri-san-pietro
+
+3. CARICA TUTTO IL CONTENUTO DI QUESTA CARTELLA NEL REPOSITORY
+   I file package.json, netlify.toml, .eleventy.js e la cartella src
+   devono trovarsi nella radice del repository.
+
+4. MODIFICA src/admin/config.yml
+   Sostituisci:
+   INSERISCI_USERNAME_GITHUB/INSERISCI_NOME_REPOSITORY
+   con, per esempio:
+   simonebufalino/cerimonie-funebri-san-pietro
+
+5. COLLEGA IL REPOSITORY A NETLIFY
+   In Netlify:
+   Add new project > Import an existing project > GitHub.
+   Seleziona il repository.
+   Netlify userà automaticamente:
+   Build command: npm run build
+   Publish directory: _site
+
+6. MANTIENI IL DOMINIO
+   Sposta il dominio cerimoniefunebrisanpietro.netlify.app sul nuovo progetto
+   oppure assegna temporaneamente un nuovo nome e sostituiscilo dopo i test.
+
+7. CONFIGURA L'AUTENTICAZIONE GITHUB
+   Crea una GitHub OAuth App:
+   Homepage URL:
+   https://cerimoniefunebrisanpietro.netlify.app
+   Authorization callback URL:
+   https://api.netlify.com/auth/done
+
+   Poi in Netlify:
+   Project configuration > Access & security > OAuth >
+   Authentication providers > Install provider > GitHub.
+   Inserisci Client ID e Client Secret della OAuth App.
+
+8. ACCESSO AL PANNELLO
+   Apri:
+   https://cerimoniefunebrisanpietro.netlify.app/admin/
+
+GESTIONE QUOTIDIANA
+- Premi “Nuovo necrologio”.
+- Compila i campi.
+- Carica la fotografia.
+- Conferma di avere l'autorizzazione della famiglia.
+- Premi Pubblica.
+- Netlify ricostruirà automaticamente il sito.
+- Apri il necrologio e scarica il QR code.
+
+CONDOLIANZE
+I messaggi arrivano in Netlify > Forms > condoglianze.
+Non vengono pubblicati automaticamente, per proteggere la famiglia da spam
+e contenuti non appropriati.
+
+NOTA TECNICA
+Git Gateway risulta deprecato da Netlify. Per questo il progetto usa il backend
+GitHub diretto, più adatto a una nuova installazione. Gli utenti del pannello
+devono avere accesso al repository GitHub.
