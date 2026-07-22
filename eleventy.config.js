@@ -1,18 +1,70 @@
-<!doctype html>
-<html lang="it">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ title or "Cerimonie Funebri San Pietro" }}</title>
-<meta name="description" content="{{ description or 'Necrologi e condoglianze online di Cerimonie Funebri San Pietro ad Asti.' }}">
-<link rel="stylesheet" href="/assets/style.css">
-</head>
-<body>
-<header><div class="container nav">
-<a class="brand" href="/"><img src="/assets/logo.jpg" alt="Cerimonie Funebri San Pietro"></a>
-<nav class="menu">
-<a href="/">Home</a><a href="/necrologi/">Necrologi</a><a href="/archivio/">Archivio</a><a href="/#contatti">Contatti</a><a class="admin-link" href="/admin/">Area riservata</a>
-</nav></div></header>
-{{ content | safe }}
-<footer>© 2026 Cerimonie Funebri San Pietro · Corso Savona 487, Asti · Tel. 327 264 8122</footer>
-</body></html>
+const { DateTime } = require("luxon");
+
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy({
+    "src/assets": "assets",
+  });
+
+  eleventyConfig.addPassthroughCopy({
+    "src/admin": "admin",
+  });
+
+  eleventyConfig.addFilter("dateIt", (value) => {
+    if (!value) return "";
+
+    const dt = DateTime.fromISO(String(value), {
+      zone: "Europe/Rome",
+    });
+
+    return dt.isValid
+      ? dt.setLocale("it").toFormat("d LLLL yyyy")
+      : value;
+  });
+
+  eleventyConfig.addFilter("dateTimeIt", (value) => {
+    if (!value) return "";
+
+    const dt = DateTime.fromISO(String(value), {
+      zone: "Europe/Rome",
+    });
+
+    return dt.isValid
+      ? dt.setLocale("it").toFormat("d LLLL yyyy, HH:mm")
+      : value;
+  });
+
+  function getNecrologi(collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("src/necrologi/*.md")
+      .filter((item) => item.data.pubblicato !== false)
+      .sort(
+        (a, b) =>
+          new Date(b.data.data_decesso || b.date) -
+          new Date(a.data.data_decesso || a.date)
+      );
+  }
+
+  eleventyConfig.addCollection("necrologi", getNecrologi);
+
+  eleventyConfig.addCollection("necrologiAttivi", (collectionApi) =>
+    getNecrologi(collectionApi).filter(
+      (item) => item.data.archiviato !== true
+    )
+  );
+
+  eleventyConfig.addCollection("necrologiArchiviati", (collectionApi) =>
+    getNecrologi(collectionApi).filter(
+      (item) => item.data.archiviato === true
+    )
+  );
+
+  return {
+    dir: {
+      input: "src",
+      includes: "_includes",
+      output: "_site",
+    },
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
+  };
+};
