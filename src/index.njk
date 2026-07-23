@@ -1,209 +1,101 @@
-
 ---
 layout: base.njk
 title: Cerimonie Funebri San Pietro | Asti
-permalink: /index.html
 description: Assistenza funebre H24 ad Asti e provincia. Cerimonie personalizzate, cremazioni, trasporti, pratiche e necrologi online.
+permalink: /index.html
 ---
-
-<style>
-  :root{
-    --sp-green:#163f34;
-    --sp-green-dark:#0c2922;
-    --sp-gold:#c7a45c;
-    --sp-ivory:#f7f3ea;
-    --sp-white:#ffffff;
-    --sp-text:#26332f;
-    --sp-muted:#66716d;
-    --sp-line:rgba(199,164,92,.32);
-    --sp-shadow:0 18px 45px rgba(12,41,34,.12);
-  }
-  .sp-home *{box-sizing:border-box}
-  .sp-home{color:var(--sp-text);background:var(--sp-white)}
-  .sp-wrap{width:min(1180px,calc(100% - 36px));margin:0 auto}
-  .sp-hero{position:relative;isolation:isolate;overflow:hidden;min-height:680px;display:grid;align-items:center;color:#fff;background:
-    radial-gradient(circle at 82% 25%,rgba(199,164,92,.24),transparent 28%),
-    linear-gradient(120deg,rgba(12,41,34,.98),rgba(22,63,52,.90));}
-  .sp-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:
-    linear-gradient(90deg,rgba(8,29,24,.48),rgba(8,29,24,.10)),
-    url('/assets/logo.jpg') center right 8%/420px auto no-repeat;opacity:.18;filter:grayscale(1)}
-  .sp-hero:after{content:"";position:absolute;right:-110px;bottom:-150px;width:470px;height:470px;border:1px solid rgba(199,164,92,.30);border-radius:50%;box-shadow:0 0 0 55px rgba(199,164,92,.05),0 0 0 110px rgba(199,164,92,.035)}
-  .sp-hero-content{position:relative;z-index:1;max-width:800px;padding:95px 0}
-  .sp-kicker{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px;color:#f0dba9;font-size:.88rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
-  .sp-kicker:before{content:"";width:38px;height:1px;background:var(--sp-gold)}
-  .sp-hero h1{margin:0 0 22px;font-family:Georgia,'Times New Roman',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:500;line-height:1.02;letter-spacing:-.025em;color:#fff}
-  .sp-hero p{max-width:690px;margin:0 0 34px;font-size:clamp(1.05rem,2vw,1.28rem);line-height:1.75;color:rgba(255,255,255,.86)}
-  .sp-actions{display:flex;flex-wrap:wrap;gap:14px}
-  .sp-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:13px 22px;border-radius:4px;text-decoration:none;font-weight:800;transition:.2s ease;border:1px solid transparent}
-  .sp-btn:hover{transform:translateY(-2px)}
-  .sp-btn-gold{background:var(--sp-gold);color:var(--sp-green-dark)}
-  .sp-btn-light{border-color:rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.05)}
-  .sp-emergency{margin-top:-38px;position:relative;z-index:4}
-  .sp-emergency-card{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:28px;padding:28px 34px;background:#fff;border:1px solid var(--sp-line);box-shadow:var(--sp-shadow)}
-  .sp-emergency-card h2{margin:0 0 5px;font-family:Georgia,'Times New Roman',serif;color:var(--sp-green);font-size:clamp(1.55rem,3vw,2.25rem)}
-  .sp-emergency-card p{margin:0;color:var(--sp-muted)}
-  .sp-emergency-actions{display:flex;justify-content:flex-end;gap:11px;flex-wrap:wrap}
-  .sp-emergency-actions .sp-btn{min-height:46px;padding:11px 17px}
-  .sp-btn-dark{background:var(--sp-green);color:#fff}
-  .sp-btn-outline{border-color:var(--sp-green);color:var(--sp-green);background:#fff}
-  .sp-section{padding:88px 0}
-  .sp-section-alt{background:var(--sp-ivory)}
-  .sp-heading{max-width:760px;margin:0 auto 46px;text-align:center}
-  .sp-heading small{display:block;margin-bottom:11px;color:#9a7432;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-  .sp-heading h2{margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;color:var(--sp-green);font-size:clamp(2.1rem,4.5vw,3.6rem);font-weight:500}
-  .sp-heading p{margin:0;color:var(--sp-muted);font-size:1.05rem}
-  .sp-services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-  .sp-service{position:relative;overflow:hidden;min-height:220px;padding:28px 24px;background:#fff;border:1px solid var(--sp-line);transition:.22s ease}
-  .sp-service:hover{transform:translateY(-5px);box-shadow:var(--sp-shadow)}
-  .sp-service:after{content:"";position:absolute;right:-30px;bottom:-30px;width:90px;height:90px;border:1px solid rgba(199,164,92,.28);border-radius:50%}
-  .sp-icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:20px;border:1px solid var(--sp-gold);border-radius:50%;font-size:1.35rem;color:var(--sp-green)}
-  .sp-service h3{margin:0 0 10px;color:var(--sp-green);font-family:Georgia,'Times New Roman',serif;font-size:1.35rem}
-  .sp-service p{margin:0;color:var(--sp-muted);line-height:1.65}
-  .sp-about{display:grid;grid-template-columns:1fr 1fr;gap:62px;align-items:center}
-  .sp-about-visual{position:relative;min-height:470px;background:linear-gradient(145deg,var(--sp-green),var(--sp-green-dark));box-shadow:var(--sp-shadow)}
-  .sp-about-visual:before{content:"SAN PIETRO";position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.07);font-family:Georgia,serif;font-size:clamp(3rem,8vw,7rem);letter-spacing:.08em;transform:rotate(-8deg)}
-  .sp-about-visual:after{content:"Rispetto • Presenza • Discrezione";position:absolute;left:28px;right:28px;bottom:28px;padding:22px;border:1px solid rgba(199,164,92,.42);background:rgba(9,33,27,.72);color:#fff;text-align:center;font-family:Georgia,serif;font-size:1.2rem}
-  .sp-about-copy small{color:#9a7432;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
-  .sp-about-copy h2{margin:12px 0 22px;color:var(--sp-green);font-family:Georgia,'Times New Roman',serif;font-size:clamp(2.1rem,4vw,3.4rem);font-weight:500}
-  .sp-about-copy p{color:var(--sp-muted);font-size:1.06rem}
-  .sp-checks{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:27px 0 31px;padding:0;list-style:none}
-  .sp-checks li{position:relative;padding-left:26px;font-weight:700;color:var(--sp-green)}
-  .sp-checks li:before{content:"✓";position:absolute;left:0;color:#9a7432}
-  .sp-necro{background:linear-gradient(120deg,var(--sp-green-dark),var(--sp-green));color:#fff}
-  .sp-necro-inner{display:grid;grid-template-columns:1fr auto;gap:38px;align-items:center}
-  .sp-necro h2{margin:0 0 14px;color:#fff;font-family:Georgia,'Times New Roman',serif;font-size:clamp(2.15rem,4vw,3.5rem);font-weight:500}
-  .sp-necro p{max-width:720px;margin:0;color:rgba(255,255,255,.78);font-size:1.07rem}
-  .sp-contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px}
-  .sp-contact-card{padding:38px;background:#fff;border:1px solid var(--sp-line);box-shadow:var(--sp-shadow)}
-  .sp-contact-card h2{margin:0 0 22px;color:var(--sp-green);font-family:Georgia,serif;font-size:2.25rem}
-  .sp-contact-list{display:grid;gap:16px;margin:0;padding:0;list-style:none}
-  .sp-contact-list a{color:var(--sp-green);font-weight:800;text-decoration:none}
-  .sp-map{min-height:390px;border:0;width:100%;height:100%}
-  .sp-floating{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:10px}
-  .sp-floating a{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;text-decoration:none;color:#fff;font-size:1.35rem;box-shadow:0 10px 25px rgba(0,0,0,.22)}
-  .sp-phone{background:var(--sp-green)}
-  .sp-whatsapp{background:#25d366}
-  @media(max-width:960px){
-    .sp-services{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .sp-about,.sp-contact-grid{grid-template-columns:1fr}
-    .sp-necro-inner{grid-template-columns:1fr}
-    .sp-emergency-card{grid-template-columns:1fr}
-    .sp-emergency-actions{justify-content:flex-start}
-  }
-  @media(max-width:620px){
-    .sp-wrap{width:min(100% - 24px,1180px)}
-    .sp-hero{min-height:610px}
-    .sp-hero-content{padding:75px 0 100px}
-    .sp-actions,.sp-emergency-actions{display:grid;grid-template-columns:1fr;width:100%}
-    .sp-btn{width:100%}
-    .sp-services,.sp-checks{grid-template-columns:1fr}
-    .sp-section{padding:68px 0}
-    .sp-emergency-card,.sp-contact-card{padding:24px}
-    .sp-about-visual{min-height:350px}
-  }
-</style>
-
-<main class="sp-home">
-  <section class="sp-hero" aria-labelledby="sp-title">
-    <div class="sp-wrap">
-      <div class="sp-hero-content">
-        <span class="sp-kicker">Cerimonie Funebri San Pietro • Asti</span>
-        <h1 id="sp-title">Accanto alle famiglie, con rispetto e discrezione.</h1>
-        <p>Un’assistenza completa e riservata, disponibile 24 ore su 24, per accompagnare ogni famiglia con professionalità, ascolto e attenzione autentica.</p>
-        <div class="sp-actions">
-          <a class="sp-btn sp-btn-gold" href="/necrologi/">🕊 Consulta i necrologi</a>
-          <a class="sp-btn sp-btn-light" href="tel:+393272648122">☎ Chiama H24</a>
+<main>
+  <section class="home-hero">
+    <div class="container home-hero__grid">
+      <div class="home-hero__content">
+        <p class="eyebrow">Cerimonie Funebri San Pietro · Asti</p>
+        <h1>Accanto alle famiglie, con rispetto e discrezione.</h1>
+        <p class="lead">Assistenza completa e riservata, disponibile 24 ore su 24, per accompagnare ogni famiglia con professionalità, ascolto e attenzione autentica.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="/necrologi/">Consulta i necrologi</a>
+          <a class="btn btn-outline-light" href="tel:+393272648122">Chiama H24</a>
         </div>
+      </div>
+      <div class="home-hero__mark" aria-hidden="true">
+        <span class="home-hero__ring"></span>
+        <span class="home-hero__cross">✦</span>
       </div>
     </div>
   </section>
 
-  <div class="sp-emergency">
-    <div class="sp-wrap">
-      <div class="sp-emergency-card">
-        <div>
-          <h2>Reperibilità immediata 24 ore su 24</h2>
-          <p>Interveniamo ad Asti e provincia, ogni giorno dell’anno.</p>
-        </div>
-        <div class="sp-emergency-actions">
-          <a class="sp-btn sp-btn-dark" href="tel:+393272648122">327 264 8122</a>
-          <a class="sp-btn sp-btn-outline" href="https://wa.me/393272648122" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="sp-section sp-section-alt" aria-labelledby="servizi-title">
-    <div class="sp-wrap">
-      <div class="sp-heading">
-        <small>Assistenza completa</small>
-        <h2 id="servizi-title">Servizi dedicati a ogni famiglia</h2>
-        <p>Organizziamo ogni fase della cerimonia con sobrietà, precisione e soluzioni personalizzate per ogni esigenza.</p>
-      </div>
-      <div class="sp-services">
-        <article class="sp-service"><div class="sp-icon">✦</div><h3>Servizi funebri completi</h3><p>Organizzazione della cerimonia e assistenza continua in ogni momento.</p></article>
-        <article class="sp-service"><div class="sp-icon">♨</div><h3>Cremazioni</h3><p>Gestione completa delle pratiche, del rito e della destinazione delle ceneri.</p></article>
-        <article class="sp-service"><div class="sp-icon">✥</div><h3>Inumazioni e tumulazioni</h3><p>Coordinamento accurato con cimiteri, comuni e strutture competenti.</p></article>
-        <article class="sp-service"><div class="sp-icon">↗</div><h3>Trasporti funebri</h3><p>Trasporti nazionali e internazionali con mezzi autorizzati e personale qualificato.</p></article>
-        <article class="sp-service"><div class="sp-icon">❀</div><h3>Addobbi floreali</h3><p>Composizioni eleganti e personalizzate per chiese, camere ardenti e cerimonie.</p></article>
-        <article class="sp-service"><div class="sp-icon">✓</div><h3>Disbrigo pratiche</h3><p>Assistenza amministrativa completa, autorizzazioni e documentazione.</p></article>
-        <article class="sp-service"><div class="sp-icon">◇</div><h3>Tanatoestetica</h3><p>Cura e preparazione della persona defunta con dignità e delicatezza.</p></article>
-        <article class="sp-service"><div class="sp-icon">▤</div><h3>Necrologi e manifesti</h3><p>Pubblicazione online, manifesti funebri, ricordini e comunicazioni personalizzate.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="sp-section">
-    <div class="sp-wrap sp-about">
-      <div class="sp-about-visual" aria-hidden="true"></div>
-      <div class="sp-about-copy">
-        <small>La nostra presenza</small>
-        <h2>Un sostegno discreto nei momenti più delicati</h2>
-        <p>Cerimonie Funebri San Pietro accompagna le famiglie con sensibilità, esperienza e attenzione ai dettagli. Ogni servizio viene progettato insieme ai familiari, rispettando volontà, credo e possibilità economiche.</p>
-        <ul class="sp-checks">
-          <li>Disponibilità H24</li>
-          <li>Preventivi personalizzati</li>
-          <li>Assistenza ad Asti e provincia</li>
-          <li>Servizi per ogni culto</li>
-          <li>Trasparenza e riservatezza</li>
-          <li>Organizzazione completa</li>
-        </ul>
-        <a class="sp-btn sp-btn-dark" href="#contatti">Parla con noi</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="sp-section sp-necro" aria-labelledby="necro-title">
-    <div class="sp-wrap sp-necro-inner">
+  <section class="quick-contact" aria-label="Reperibilità immediata">
+    <div class="container quick-contact__inner">
       <div>
-        <h2 id="necro-title">Necrologi e partecipazioni online</h2>
-        <p>Consulta gli annunci pubblicati, le informazioni sulla cerimonia e condividi un pensiero di vicinanza alla famiglia.</p>
+        <p class="eyebrow eyebrow--dark">Reperibilità immediata</p>
+        <h2>24 ore su 24, ogni giorno dell’anno</h2>
+        <p>Interveniamo ad Asti e provincia con discrezione e tempestività.</p>
       </div>
-      <a class="sp-btn sp-btn-gold" href="/necrologi/">Apri i necrologi</a>
+      <div class="quick-contact__actions">
+        <a class="btn btn-dark" href="tel:+393272648122">327 264 8122</a>
+        <a class="btn btn-outline-dark" href="https://wa.me/393272648122" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
   </section>
 
-  <section id="contatti" class="sp-section sp-section-alt">
-    <div class="sp-wrap sp-contact-grid">
-      <div class="sp-contact-card">
-        <small class="sp-kicker" style="color:#9a7432">Contatti</small>
-        <h2>Siamo disponibili in ogni momento</h2>
-        <ul class="sp-contact-list">
-          <li><strong>Telefono H24</strong><br><a href="tel:+393272648122">327 264 8122</a></li>
-          <li><strong>Email</strong><br><a href="mailto:iofsanpietro@gmail.com">iofsanpietro@gmail.com</a></li>
-          <li><strong>Sede</strong><br>Corso Savona 487, Asti</li>
+  <section class="section section--ivory">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--dark">I nostri servizi</p>
+        <h2>Un sostegno completo, in ogni fase</h2>
+        <p>Organizziamo ogni cerimonia insieme alla famiglia, nel rispetto delle volontà, del culto e delle possibilità economiche.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card"><span>01</span><h3>Organizzazione completa</h3><p>Coordinamento della cerimonia, vestizione, camera ardente e assistenza alla famiglia.</p></article>
+        <article class="service-card"><span>02</span><h3>Cremazioni e sepolture</h3><p>Cremazione, tumulazione e inumazione con gestione accurata di ogni pratica.</p></article>
+        <article class="service-card"><span>03</span><h3>Trasporti funebri</h3><p>Trasporti locali, nazionali e internazionali, con mezzi e personale qualificato.</p></article>
+        <article class="service-card"><span>04</span><h3>Pratiche amministrative</h3><p>Disbrigo documenti, autorizzazioni, successioni e pratiche di reversibilità.</p></article>
+        <article class="service-card"><span>05</span><h3>Addobbi e composizioni</h3><p>Allestimenti floreali sobri ed eleganti, studiati secondo le preferenze della famiglia.</p></article>
+        <article class="service-card"><span>06</span><h3>Necrologi online</h3><p>Pubblicazione del ricordo, informazioni sulla cerimonia e messaggi di cordoglio.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <p class="eyebrow eyebrow--dark">La nostra presenza</p>
+        <h2>Professionalità, vicinanza e attenzione ai dettagli</h2>
+      </div>
+      <div class="split__copy">
+        <p>Ogni famiglia viene accolta con rispetto e ascolto. Progettiamo servizi funebri personalizzati, sobri e dignitosi, assicurando un riferimento costante dall’inizio alla conclusione della cerimonia.</p>
+        <ul class="check-list">
+          <li>Assistenza H24, 7 giorni su 7</li>
+          <li>Preventivi chiari e personalizzati</li>
+          <li>Servizi per ogni culto e credo</li>
+          <li>Operatività in Italia e all’estero</li>
         </ul>
-        <div class="sp-actions" style="margin-top:28px">
-          <a class="sp-btn sp-btn-dark" href="tel:+393272648122">Chiama ora</a>
-          <a class="sp-btn sp-btn-outline" href="https://www.google.com/maps/search/?api=1&query=Corso+Savona+487+Asti" target="_blank" rel="noopener">Indicazioni stradali</a>
-        </div>
       </div>
-      <iframe class="sp-map" title="Mappa Cerimonie Funebri San Pietro" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Corso%20Savona%20487%20Asti&output=embed"></iframe>
     </div>
   </section>
 
-  <div class="sp-floating" aria-label="Contatti rapidi">
-    <a class="sp-phone" href="tel:+393272648122" aria-label="Chiama">☎</a>
-    <a class="sp-whatsapp" href="https://wa.me/393272648122" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
-  </div>
+  <section class="section section--green">
+    <div class="container necro-cta">
+      <div>
+        <p class="eyebrow">Ricordi e comunicazioni</p>
+        <h2>Necrologi e condoglianze online</h2>
+        <p>Consulta gli avvisi pubblicati e le informazioni sulle cerimonie di commiato.</p>
+      </div>
+      <a class="btn btn-gold" href="/necrologi/">Apri i necrologi</a>
+    </div>
+  </section>
+
+  <section id="contatti" class="section section--ivory">
+    <div class="container contact-grid">
+      <div>
+        <p class="eyebrow eyebrow--dark">Contatti</p>
+        <h2>Siamo reperibili in ogni momento</h2>
+        <p>Per un colloquio riservato o per richiedere assistenza immediata, contattaci senza esitazione.</p>
+      </div>
+      <div class="contact-card">
+        <p><strong>Telefono H24</strong><a href="tel:+393272648122">327 264 8122</a></p>
+        <p><strong>Sede</strong><a href="https://www.google.com/maps/search/?api=1&query=Corso+Savona+487+Asti" target="_blank" rel="noopener">Corso Savona 487, Asti</a></p>
+        <p><strong>Email</strong><a href="mailto:iofsanpietro@gmail.com">iofsanpietro@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
 </main>
