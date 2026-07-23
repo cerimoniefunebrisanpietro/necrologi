@@ -1,18 +1,64 @@
 <!doctype html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ title or "Cerimonie Funebri San Pietro" }}</title>
-<meta name="description" content="{{ description or 'Necrologi e condoglianze online di Cerimonie Funebri San Pietro ad Asti.' }}">
-<link rel="stylesheet" href="/assets/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#123c31">
+  <title>{{ title or "Cerimonie Funebri San Pietro" }}</title>
+  <meta name="description" content="{{ description or 'Necrologi e condoglianze online di Cerimonie Funebri San Pietro ad Asti.' }}">
+  <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-<header><div class="container nav">
-<a class="brand" href="/"><img src="/assets/logo.jpg" alt="Cerimonie Funebri San Pietro"></a>
-<nav class="menu">
-<a href="/">Home</a><a href="/necrologi/">Necrologi</a><a href="/archivio/">Archivio</a><a href="/#contatti">Contatti</a><a class="admin-link" href="/admin/">Area riservata</a>
-</nav></div></header>
-{{ content | safe }}
-<footer>© 2026 Cerimonie Funebri San Pietro · Corso Savona 487, Asti · Tel. 327 264 8122</footer>
-</body></html>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/" aria-label="Cerimonie Funebri San Pietro - Home">
+        <img src="/assets/logo.jpg" alt="Cerimonie Funebri San Pietro">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">Menu</button>
+      <nav class="menu" id="main-menu" aria-label="Navigazione principale">
+        <a href="/">Home</a>
+        <a href="/necrologi/">Necrologi</a>
+        <a href="/archivio/">Archivio</a>
+        <a href="/#contatti">Contatti</a>
+        <a class="menu-call" href="tel:+393272648122">Chiama H24</a>
+        <a class="admin-link" href="/admin/">Area riservata</a>
+      </nav>
+    </div>
+  </header>
+
+  {{ content | safe }}
+
+  <a class="floating-call" href="tel:+393272648122" aria-label="Chiama Cerimonie Funebri San Pietro">☎</a>
+  <a class="floating-whatsapp" href="https://wa.me/393272648122" target="_blank" rel="noopener" aria-label="Contatta su WhatsApp">◉</a>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Cerimonie Funebri San Pietro</strong>
+        <p>Accanto alle famiglie con discrezione, professionalità e rispetto.</p>
+      </div>
+      <div>
+        <strong>Contatti</strong>
+        <p><a href="tel:+393272648122">327 264 8122</a><br><a href="mailto:iofsanpietro@gmail.com">iofsanpietro@gmail.com</a></p>
+      </div>
+      <div>
+        <strong>Sede</strong>
+        <p>Corso Savona 487<br>14100 Asti</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2026 Cerimonie Funebri San Pietro · Reperibilità H24</div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('#main-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        menu.classList.toggle('is-open');
+      });
+    }
+  </script>
+</body>
+</html>
