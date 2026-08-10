@@ -1,0 +1,13 @@
+AGGIORNAMENTO SEO GOOGLE
+
+Aggiunti:
+- src/sitemap.njk -> genera https://cerimoniefunebrisanpietro.it/sitemap.xml
+- src/robots.njk -> genera https://cerimoniefunebrisanpietro.it/robots.txt
+
+La sitemap contiene Home, pagina Necrologi, Archivio e tutti i necrologi pubblicati.
+L'area /admin/ è esclusa dalla scansione tramite robots.txt.
+
+Dopo il deploy su Netlify:
+1. aprire https://cerimoniefunebrisanpietro.it/sitemap.xml
+2. aprire https://cerimoniefunebrisanpietro.it/robots.txt
+3. in Google Search Console > Sitemap inviare: sitemap.xml
