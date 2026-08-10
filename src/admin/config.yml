@@ -5,8 +5,8 @@ backend:
 
 media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"
-site_url: "https://cerimoniefunebri-san-pietro.netlify.app"
-display_url: "https://cerimoniefunebri-san-pietro.netlify.app"
+site_url: "https://cerimoniefunebrisanpietr.netlify.app"
+display_url: "https://cerimoniefunebrisanpietr.netlify.app"
 logo_url: "/assets/logo.jpg"
 locale: "it"
 
