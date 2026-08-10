@@ -1,15 +1,17 @@
 ---
 layout: base.njk
-title: Necrologi e condoglianze online
+title: Necrologi | Cerimonie Funebri San Pietro
+description: Necrologi e condoglianze online di Cerimonie Funebri San Pietro ad Asti.
 permalink: /necrologi/index.html
 ---
-<main><section class="page-hero"><div class="container"><p class="eyebrow">Ricordi e comunicazioni</p><h1>Necrologi</h1><p>Un ricordo che vive nel cuore di chi resta.</p></div></section>
-<section class="alt"><div class="container">
-<div class="notice"><strong>Privacy:</strong> ogni necrologio viene pubblicato esclusivamente con l'autorizzazione della famiglia.</div>
+<main>
+<section class="necro-hero"><div class="container"><p class="eyebrow">Cerimonie Funebri San Pietro</p><h1>Necrologi</h1><div class="gold-rule gold-rule--center"></div><p>Un ricordo che vive nel cuore di chi resta.</p></div></section>
+<section class="section necro-list-section"><div class="container">
+<div class="notice"><strong>Riservatezza:</strong> ogni necrologio viene pubblicato esclusivamente con l'autorizzazione della famiglia.</div>
 <div class="toolbar"><input id="search" type="search" placeholder="Cerca per nome e cognome"></div>
-<div class="grid">
+<div class="necro-grid">
 {% for item in collections.necrologiAttivi %}
-<article class="card" data-name="{{ item.data.nome_completo | lower }}"><img src="{{ item.data.foto }}" alt="Foto di {{ item.data.nome_completo }}"><div class="card-body"><h2>{{ item.data.nome_completo }}</h2><p class="meta">{{ item.data.data_nascita | dateIt }} — {{ item.data.data_decesso | dateIt }}</p><p>{{ item.data.sommario }}</p><a class="btn btn-dark" href="{{ item.url }}">Apri il necrologio</a></div></article>
+<article class="necro-card" data-name="{{ item.data.nome_completo | lower }}"><div class="necro-card__photo"><img src="{{ item.data.foto }}" alt="Foto di {{ item.data.nome_completo }}"></div><div class="necro-card__body"><h2>{{ item.data.nome_completo }}</h2><p class="meta">{{ item.data.data_nascita | dateIt }} — {{ item.data.data_decesso | dateIt }}</p><p>{{ item.data.sommario }}</p><a class="btn btn-green" href="{{ item.url }}">Leggi il necrologio</a></div></article>
 {% else %}<div class="empty">Al momento non sono presenti necrologi pubblicati.</div>{% endfor %}
 </div></div></section></main>
-<script>const i=document.getElementById('search');i.addEventListener('input',()=>{const q=i.value.toLowerCase().trim();document.querySelectorAll('[data-name]').forEach(c=>c.style.display=c.dataset.name.includes(q)?'':'none')});</script>
+<script>const i=document.getElementById('search');if(i)i.addEventListener('input',()=>{const q=i.value.toLowerCase().trim();document.querySelectorAll('[data-name]').forEach(c=>c.style.display=c.dataset.name.includes(q)?'':'none')});</script>

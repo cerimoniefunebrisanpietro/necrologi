@@ -10,28 +10,31 @@ eleventyComputed:
   description: "Necrologio di {{ necrologio.data.nome_completo }} e condoglianze online."
 ---
 <main>
-<section class="page-hero page-hero--small"><div class="container"><p class="eyebrow">Necrologio</p><h1>{{ necrologio.data.nome_completo }}</h1></div></section>
-<section class="alt"><div class="container">
-<div class="detail">
-<div>
-<img class="portrait" src="{{ necrologio.data.foto }}" alt="Foto di {{ necrologio.data.nome_completo }}">
-<div class="qrbox" style="margin-top:20px"><h3>QR code del necrologio</h3><div id="qrcode"></div><p>Per manifesti, ricordini e condivisione.</p><button class="btn btn-gold" id="downloadQr" type="button">Scarica QR</button></div>
-</div>
-<article class="panel">
-{% if necrologio.data.archiviato %}<span class="badge">Necrologio archiviato</span>{% endif %}
-<h1>{{ necrologio.data.nome_completo }}</h1>
-<div class="dates">{{ necrologio.data.data_nascita | dateIt }} — {{ necrologio.data.data_decesso | dateIt }}</div>
-<div>{{ necrologio.templateContent | safe }}</div>
-<div class="info-grid">
-{% if necrologio.data.rosario_data %}<div class="info"><strong>Santo Rosario</strong>{{ necrologio.data.rosario_data | dateTimeIt }}<br>{{ necrologio.data.rosario_luogo }}</div>{% endif %}
-{% if necrologio.data.funerale_data %}<div class="info"><strong>Cerimonia funebre</strong>{{ necrologio.data.funerale_data | dateTimeIt }}<br>{{ necrologio.data.funerale_luogo }}</div>{% endif %}
-{% if necrologio.data.destinazione %}<div class="info"><strong>Destinazione</strong>{{ necrologio.data.destinazione }}</div>{% endif %}
-{% if necrologio.data.note %}<div class="info"><strong>Informazioni</strong>{{ necrologio.data.note }}</div>{% endif %}
-</div>
-<a class="btn btn-gold" href="#condoglianze">Invia condoglianze</a>
-</article></div></div></section>
-<section id="condoglianze"><div class="container">
-<div class="section-head"><h2>Condoglianze online</h2><p>Il messaggio viene verificato prima dell'eventuale pubblicazione.</p></div>
+<section class="detail-hero"><div class="container"><a href="/necrologi/">← Torna ai necrologi</a></div></section>
+<section class="section detail-section"><div class="container">
+<div class="obit-detail">
+  <div class="obit-photo-column">
+    <img class="portrait" src="{{ necrologio.data.foto }}" alt="Foto di {{ necrologio.data.nome_completo }}">
+    <div class="qrbox"><h3>QR code del necrologio</h3><div id="qrcode"></div><p>Per manifesti, ricordini e condivisione.</p><button class="btn btn-gold" id="downloadQr" type="button">Scarica QR</button></div>
+  </div>
+  <article class="obit-paper">
+    {% if necrologio.data.archiviato %}<span class="badge">Necrologio archiviato</span>{% endif %}
+    <p class="eyebrow eyebrow--dark">Nel ricordo</p>
+    <h1>{{ necrologio.data.nome_completo }}</h1>
+    <div class="dates">{{ necrologio.data.data_nascita | dateIt }} — {{ necrologio.data.data_decesso | dateIt }}</div>
+    <div class="gold-rule"></div>
+    <div class="obit-text">{{ necrologio.templateContent | safe }}</div>
+    <div class="info-grid">
+      {% if necrologio.data.rosario_data %}<div class="info"><strong>Santo Rosario</strong>{{ necrologio.data.rosario_data | dateTimeIt }}<br>{{ necrologio.data.rosario_luogo }}</div>{% endif %}
+      {% if necrologio.data.funerale_data %}<div class="info"><strong>Cerimonia funebre</strong>{{ necrologio.data.funerale_data | dateTimeIt }}<br>{{ necrologio.data.funerale_luogo }}</div>{% endif %}
+      {% if necrologio.data.destinazione %}<div class="info"><strong>Destinazione</strong>{{ necrologio.data.destinazione }}</div>{% endif %}
+      {% if necrologio.data.note %}<div class="info"><strong>Informazioni</strong>{{ necrologio.data.note }}</div>{% endif %}
+    </div>
+    <a class="btn btn-green" href="#condoglianze">Lascia un pensiero</a>
+  </article>
+</div></div></section>
+<section id="condoglianze" class="section condolences-section"><div class="container">
+<div class="section-head"><p class="eyebrow eyebrow--dark">Condoglianze</p><h2>Lascia un pensiero alla famiglia</h2><div class="gold-rule gold-rule--center"></div><p>Il messaggio viene verificato prima dell'eventuale pubblicazione.</p></div>
 <div class="columns">
 <form class="form" name="condoglianze" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/grazie/">
 <input type="hidden" name="form-name" value="condoglianze"><input type="hidden" name="necrologio" value="{{ necrologio.data.nome_completo }}"><input type="hidden" name="pagina" value="{{ necrologio.url }}">
@@ -40,14 +43,14 @@ eleventyComputed:
 <div class="group"><label>Messaggio *</label><textarea name="messaggio" maxlength="1500" required></textarea></div>
 <div class="group check"><input id="pubblica" name="autorizza_pubblicazione" type="checkbox" value="sì"><label for="pubblica">Autorizzo la pubblicazione del messaggio senza mostrare la mia email.</label></div>
 <div class="group check"><input id="privacy" name="privacy" type="checkbox" required><label for="privacy">Acconsento al trattamento dei dati per l'invio della condoglianza. *</label></div>
-<button class="btn btn-dark" type="submit">Invia condoglianze</button>
+<button class="btn btn-green" type="submit">Invia condoglianze</button>
 </form>
-<aside class="qrbox"><h3>Condividi il ricordo</h3><p>Il QR apre direttamente questa pagina.</p></aside>
+<aside class="condolence-aside"><span>🕯</span><h3>Un pensiero di vicinanza</h3><p>Le parole possono essere un gesto semplice e prezioso per chi vive un momento di dolore.</p></aside>
 </div></div></section></main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 const url=window.location.href.split('#')[0]+'#condoglianze';
 const box=document.getElementById('qrcode');
-new QRCode(box,{text:url,width:240,height:240,colorDark:'#10253a',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
-document.getElementById('downloadQr').addEventListener('click',()=>{const canvas=box.querySelector('canvas'),img=box.querySelector('img');const data=canvas?canvas.toDataURL('image/png'):img.src;const a=document.createElement('a');a.href=data;a.download='qr-{{ necrologio.fileSlug }}.png';a.click();});
+if(box&&window.QRCode)new QRCode(box,{text:url,width:220,height:220,colorDark:'#063a2a',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
+const dl=document.getElementById('downloadQr');if(dl)dl.addEventListener('click',()=>{const canvas=box.querySelector('canvas'),img=box.querySelector('img');const data=canvas?canvas.toDataURL('image/png'):img.src;const a=document.createElement('a');a.href=data;a.download='qr-{{ necrologio.fileSlug }}.png';a.click();});
 </script>
