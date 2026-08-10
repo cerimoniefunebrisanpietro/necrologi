@@ -1,64 +1,121 @@
 ---
 layout: base.njk
 title: Cerimonie Funebri San Pietro | Asti
-description: Assistenza funebre H24 ad Asti e provincia. Cerimonie personalizzate, cremazioni, trasporti, pratiche e necrologi online.
+description: Assistenza funebre H24 ad Asti e provincia. Servizi completi, cremazioni, trasporti, pratiche e necrologi online.
 permalink: /index.html
 ---
 <main>
-  <section class="home-hero">
-    <div class="container home-hero__grid">
-      <div class="home-hero__content">
-        <p class="eyebrow">Asti e provincia</p>
-        <h1>Vicini alle famiglie<br>con rispetto e discrezione</h1>
-        <p class="lead">Professionalità, empatia e attenzione in ogni momento. Organizziamo ogni servizio con cura, chiarezza e riservatezza.</p>
-        <div class="hero-actions">
-          <a class="btn btn-dark" href="#servizi">I nostri servizi</a>
-          <a class="btn btn-outline-dark" href="/necrologi/">Necrologi online</a>
-        </div>
+  <section class="photo-hero">
+    <div class="container photo-hero__content">
+      <p class="eyebrow">Asti e provincia</p>
+      <h1>Vicini alle famiglie<br>con rispetto e discrezione</h1>
+      <div class="gold-rule"></div>
+      <p class="lead">Professionalità, empatia e attenzione in ogni momento. Un sostegno concreto, disponibile 24 ore su 24.</p>
+      <div class="hero-actions">
+        <a class="btn btn-green" href="tel:+393272648122">☎ Chiama ora H24</a>
+        <a class="btn btn-cream" href="/necrologi/">Necrologi online</a>
       </div>
-      <aside class="hero-badge"><strong>Reperibilità continua</strong><span>H24 · 7 giorni su 7</span><p>Siamo sempre al vostro fianco quando ne avete più bisogno.</p><a href="tel:+393272648122">☎ 327 264 8122</a></aside>
     </div>
   </section>
 
-  <section class="feature-band"><div class="container feature-grid">
-    <div><strong>REPERIBILITÀ H24</strong><span>24 ore su 24, tutti i giorni</span></div>
-    <div><strong>EMPATIA E RISPETTO</strong><span>Accanto alle famiglie con discrezione</span></div>
-    <div><strong>SERVIZI COMPLETI</strong><span>Ogni dettaglio coordinato con cura</span></div>
-    <div><strong>PRATICHE E BUROCRAZIA</strong><span>Assistenza amministrativa completa</span></div>
-  </div></section>
-
-  {% if collections.necrologiAttivi.length %}
-  <section class="section latest-obits"><div class="container">
-    <div class="section-head"><p class="eyebrow eyebrow--dark">Ultimi necrologi</p><h2>Un ricordo che resta</h2><p>Consulta gli ultimi avvisi pubblicati e le informazioni sulle cerimonie.</p></div>
-    <div class="grid obit-grid">
-      {% for item in collections.necrologiAttivi %}
-      {% if loop.index <= 3 %}
-      <article class="card obituary-card"><img src="{{ item.data.foto }}" alt="Foto di {{ item.data.nome_completo }}"><div class="card-body"><h3>{{ item.data.nome_completo }}</h3><p class="meta">{{ item.data.data_nascita | dateIt }} — {{ item.data.data_decesso | dateIt }}</p><p>{{ item.data.sommario }}</p><a class="btn btn-gold" href="{{ item.url }}">Leggi il necrologio</a></div></article>
-      {% endif %}
-      {% endfor %}
-    </div><p class="center"><a class="text-link" href="/necrologi/">Vedi tutti i necrologi →</a></p>
-  </div></section>
-  {% endif %}
-
-  <section id="servizi" class="section section--ivory"><div class="container">
-    <div class="section-head"><p class="eyebrow eyebrow--dark">I nostri servizi</p><h2>Un sostegno completo, in ogni fase</h2><p>Organizziamo ogni cerimonia insieme alla famiglia, nel rispetto delle volontà, del culto e delle esigenze economiche.</p></div>
-    <div class="service-grid service-grid--photo">
-      <article class="service-card photo-card"><img src="/assets/servizio-funerale.svg" alt="Organizzazione funerali"><div><h3>Organizzazione funerali</h3><p>Cerimonie civili o religiose, vestizione, camera ardente, cofano e assistenza personalizzata.</p></div></article>
-      <article class="service-card photo-card"><img src="/assets/servizio-fiori.svg" alt="Addobbi floreali"><div><h3>Addobbi floreali</h3><p>Corone, copribara e composizioni sobrie ed eleganti secondo le preferenze della famiglia.</p></div></article>
-      <article class="service-card photo-card"><img src="/assets/servizio-trasporto.svg" alt="Trasporti funebri"><div><h3>Trasporti funebri</h3><p>Trasporti locali, nazionali e internazionali con personale qualificato.</p></div></article>
-      <article class="service-card photo-card"><img src="/assets/servizio-cremazione.svg" alt="Cremazioni"><div><h3>Cremazioni e sepolture</h3><p>Cremazione, tumulazione e inumazione con gestione accurata di ogni pratica.</p></div></article>
+  <section id="servizi" class="section services-section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--dark">I nostri servizi</p>
+        <h2>Un servizio completo, con attenzione e dignità</h2>
+        <div class="gold-rule gold-rule--center"></div>
+      </div>
+      <div class="photo-services">
+        <article class="photo-service"><img src="/assets/servizio-funerale.jpg" alt="Allestimento floreale su cofano funebre"><div><h3>Servizi funebri</h3><p>Organizzazione completa della cerimonia con discrezione e professionalità.</p></div></article>
+        <article class="photo-service"><img src="/assets/servizio-cremazione.jpg" alt="Urna cineraria in ambiente elegante"><div><h3>Cremazioni</h3><p>Assistenza nelle pratiche, scelta dell'urna e destinazione delle ceneri.</p></div></article>
+        <article class="photo-service"><img src="/assets/servizio-fiori.jpg" alt="Composizione floreale bianca"><div><h3>Addobbi floreali</h3><p>Composizioni sobrie ed eleganti, personalizzate per ogni cerimonia.</p></div></article>
+        <article class="photo-service"><img src="/assets/servizio-trasporto.jpg" alt="Auto funebre elegante"><div><h3>Trasporti</h3><p>Servizi nazionali e internazionali organizzati con puntualità.</p></div></article>
+        <article class="photo-service"><img src="/assets/servizio-camera.jpg" alt="Ambiente raccolto per camera ardente"><div><h3>Camera ardente</h3><p>Ambienti riservati, accoglienti e curati nei minimi dettagli.</p></div></article>
+        <article class="photo-service"><img src="/assets/servizio-pratiche.jpg" alt="Compilazione di documenti"><div><h3>Pratiche e assistenza</h3><p>Disbrigo delle pratiche amministrative e supporto alla famiglia.</p></div></article>
+      </div>
     </div>
-  </div></section>
+  </section>
 
-  <section class="support-strip"><div class="container support-strip__inner"><div><h2>Siamo al vostro fianco in ogni momento</h2><p>Con discrezione, umanità e professionalità.</p></div><a class="btn btn-gold" href="tel:+393272648122">☎ Chiama 327 264 8122</a></div></section>
+  <section id="chi-siamo" class="section about-photo">
+    <div class="container about-grid">
+      <div class="about-copy">
+        <p class="eyebrow">La nostra presenza</p>
+        <h2>Siamo al vostro fianco in ogni momento</h2>
+        <p>Ogni famiglia viene accolta con ascolto e rispetto. Progettiamo servizi funebri personalizzati, sobri e dignitosi, con un riferimento costante dall'inizio alla conclusione della cerimonia.</p>
+        <ul class="check-list">
+          <li>Assistenza H24, 7 giorni su 7</li>
+          <li>Preventivi chiari e personalizzati</li>
+          <li>Servizi per ogni culto e credo</li>
+          <li>Trasporti in Italia e all'estero</li>
+        </ul>
+        <a class="btn btn-gold" href="tel:+393272648122">Parla con noi</a>
+      </div>
+      <div class="about-image"><img src="/assets/sede-principale.jpg" alt="Sede autentica di Cerimonie Funebri San Pietro ad Asti"></div>
+    </div>
+  </section>
 
-  <section id="galleria" class="section"><div class="container">
-    <div class="section-head"><p class="eyebrow eyebrow--dark">Galleria</p><h2>Dettagli curati con rispetto</h2></div>
-    <div class="gallery-grid"><img src="/assets/servizio-funerale.svg" alt="Servizio funebre"><img src="/assets/servizio-fiori.svg" alt="Composizioni floreali"><img src="/assets/servizio-trasporto.svg" alt="Trasporto funebre"><img src="/assets/servizio-cremazione.svg" alt="Cremazione"></div>
-  </div></section>
+  <section class="section obituaries-home">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--dark">Necrologi</p>
+        <h2>I ricordi che vivono nel cuore</h2>
+        <div class="gold-rule gold-rule--center"></div>
+        <p>Consulta gli avvisi pubblicati e le informazioni sulle cerimonie di commiato.</p>
+      </div>
+      <div class="home-necro-grid">
+        {% for item in collections.necrologiAttivi | reverse %}
+          {% if loop.index <= 3 %}
+          <article class="home-necro-card">
+            <img src="{{ item.data.foto }}" alt="Foto di {{ item.data.nome_completo }}">
+            <div><h3>{{ item.data.nome_completo }}</h3><p>{{ item.data.data_nascita | dateIt }} — {{ item.data.data_decesso | dateIt }}</p><a href="{{ item.url }}">Leggi il necrologio →</a></div>
+          </article>
+          {% endif %}
+        {% else %}
+          <div class="empty">Al momento non sono presenti necrologi pubblicati.</div>
+        {% endfor %}
+        <a class="memory-card" href="/necrologi/"><span>🕯</span><strong>Vai a tutti i necrologi</strong><small>Uno spazio dedicato al ricordo.</small></a>
+      </div>
+    </div>
+  </section>
 
-  <section id="contatti" class="section section--green"><div class="container contact-grid">
-    <div><p class="eyebrow">Contatti</p><h2>Siamo reperibili in ogni momento</h2><p>Per un colloquio riservato o per richiedere assistenza immediata, contattaci senza esitazione.</p></div>
-    <div class="contact-card"><p><strong>Telefono H24</strong><a href="tel:+393272648122">327 264 8122</a></p><p><strong>Sede</strong><a href="https://www.google.com/maps/search/?api=1&query=Corso+Savona+487+Asti" target="_blank" rel="noopener">Corso Savona 487, Asti</a></p><p><strong>Email</strong><a href="mailto:iofsanpietro@gmail.com">iofsanpietro@gmail.com</a></p></div>
-  </div></section>
+  <section id="galleria" class="gallery-strip">
+    <div class="gallery-strip__item"><img src="/assets/servizio-fiori.jpg" alt="Addobbi floreali"></div>
+    <div class="gallery-strip__item"><img src="/assets/servizio-trasporto.jpg" alt="Trasporto funebre"></div>
+    <div class="gallery-strip__item"><img src="/assets/servizio-camera.jpg" alt="Camera ardente"></div>
+    <div class="gallery-strip__item"><img src="/assets/servizio-funerale.jpg" alt="Servizio funebre"></div>
+  </section>
+
+  
+  <section class="section sede-authentic-gallery">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow eyebrow--dark">La nostra sede</p>
+        <h2>Ci trovate ad Asti, in Corso Savona 487</h2>
+        <div class="gold-rule gold-rule--center"></div>
+        <p>Fotografie autentiche della sede e dell'insegna Cerimonie Funebri San Pietro.</p>
+      </div>
+      <div class="real-office-grid">
+        <figure><img src="/assets/sede-principale.jpg" alt="Sede Cerimonie Funebri San Pietro vista frontale"><figcaption>La sede</figcaption></figure>
+        <figure><img src="/assets/sede-strada.jpg" alt="Vista dalla strada della sede Cerimonie Funebri San Pietro"><figcaption>Corso Savona 487, Asti</figcaption></figure>
+        <figure><img src="/assets/insegna-san-pietro.jpg" alt="Insegna autentica Cerimonie Funebri San Pietro"><figcaption>L'insegna San Pietro</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+<section id="contatti" class="contact-band">
+    <div class="container contact-band__grid">
+      <div>
+        <p class="eyebrow">Siamo a disposizione</p>
+        <h2>Sempre al vostro fianco, sempre reperibili.</h2>
+        <p><a href="tel:+393272648122">☎ 327 264 8122</a></p>
+        <p>📍 Corso Savona 487 · 14100 Asti</p>
+        <p><a href="mailto:iofsanpietro@gmail.com">✉ iofsanpietro@gmail.com</a></p>
+      </div>
+      <div class="contact-photo"><img src="/assets/sede-strada.jpg" alt="Vista autentica della sede di Cerimonie Funebri San Pietro ad Asti"></div>
+      <div class="map-card">
+        <strong>Corso Savona 487<br>14100 Asti</strong>
+        <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=Corso+Savona+487+Asti" target="_blank" rel="noopener">Indicazioni stradali</a>
+      </div>
+    </div>
+  </section>
 </main>

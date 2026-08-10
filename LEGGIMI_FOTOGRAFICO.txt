@@ -1,0 +1,14 @@
+CERIMONIE FUNEBRI SAN PIETRO - VERSIONE FOTOGRAFICA
+Aggiornata mantenendo Eleventy, GitHub, Netlify e l'area admin.
+Modifiche principali:
+- Home completamente ridisegnata
+- fotografie realistiche e layout più elegante
+- logo originale visibile in header e footer
+- pagina Necrologi e pagina singolo necrologio ridisegnate
+- area admin preservata
+- branch CMS aggiornato a main
+- URL Netlify attuale aggiornato
+Caricare questi file nel repository GitHub necrologi sul ramo main.
+
+- Sede aggiornata con 3 fotografie autentiche fornite dal titolare
+- Nessuna immagine generata utilizzata per rappresentare la sede reale
