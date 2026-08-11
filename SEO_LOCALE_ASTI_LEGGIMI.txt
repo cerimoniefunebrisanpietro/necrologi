@@ -1,0 +1,1 @@
+SEO locale Asti: title, description, H1, testo locale, canonical, Open Graph e LocalBusiness schema. Dopo il deploy: richiedere nuova indicizzazione Home e aggiornare il sito nel Profilo dell'attività Google.
