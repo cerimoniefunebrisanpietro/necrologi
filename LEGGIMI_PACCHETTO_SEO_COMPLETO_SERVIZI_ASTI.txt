@@ -1,0 +1,30 @@
+PACCHETTO SEO SERVIZI ASTI
+
+Pagine incluse:
+- /cremazione-asti/
+- /trasporti-funebri-asti/
+- /servizi-funebri-asti/
+- /camera-ardente-asti/
+- /addobbi-floreali-funerali-asti/
+- /pratiche-funerarie-asti/
+
+È mantenuta anche:
+- /onoranze-funebri-asti/
+
+Ogni pagina:
+- usa la grafica del sito
+- ha title e description specifici
+- ha canonical .it
+- ha dati strutturati LocalBusiness/FuneralHome
+- contiene contenuti originali e link interni
+- è aggiunta alla sitemap
+
+CARICAMENTO:
+1. Estrai lo ZIP.
+2. GitHub > repository del sito > Aggiungi file > Carica file.
+3. Carica TUTTO il contenuto estratto.
+4. Commit sul ramo pubblicato da Netlify.
+5. Messaggio consigliato: Aggiunta pagine SEO servizi Asti
+6. Attendi il deploy.
+7. Controlla gli URL prima di inviarli a Search Console.
+8. Richiedi indicizzazione una sola volta per ogni nuova pagina.
