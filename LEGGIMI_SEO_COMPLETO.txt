@@ -1,0 +1,19 @@
+PACCHETTO SEO COMPLETO - CERIMONIE FUNEBRI SAN PIETRO
+
+Caricamento:
+1. Estrai questo ZIP.
+2. GitHub > repository del sito > Aggiungi file > Carica file.
+3. Trascina tutto il contenuto estratto.
+4. Conferma sul ramo pubblicato da Netlify.
+5. Messaggio commit consigliato: SEO completo sito Asti
+6. Attendi il deploy e controlla la Home con Ctrl+F5.
+7. In Search Console richiedi nuovamente l'indicizzazione della Home.
+
+Contiene:
+- title e description SEO
+- H1 e testo Home ottimizzati per Asti
+- robots meta
+- Open Graph
+- Twitter Card
+- dati strutturati FuneralHome + LocalBusiness
+- canonical e sitemap già preservati dal pacchetto precedente
