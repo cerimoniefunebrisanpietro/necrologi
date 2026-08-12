@@ -1,0 +1,17 @@
+CORREZIONE GRAFICA PAGINA ONORANZE FUNEBRI ASTI
+
+Questa versione rende la pagina autonoma e usa direttamente:
+- /assets/style.css
+- header e menu del sito
+- footer del sito
+- pulsanti H24 e WhatsApp
+- immagini e classi grafiche già presenti
+
+CARICAMENTO:
+1. Estrai lo ZIP.
+2. Carica tutto nel repository GitHub come fatto in precedenza.
+3. Commit consigliato: Correzione grafica pagina Onoranze Funebri Asti
+4. Attendi il deploy Netlify.
+5. Controlla:
+   https://cerimoniefunebrisanpietro.it/onoranze-funebri-asti/
+6. Solo quando la grafica è corretta, richiedi indicizzazione in Search Console.
