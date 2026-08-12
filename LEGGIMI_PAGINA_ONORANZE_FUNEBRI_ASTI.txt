@@ -1,0 +1,16 @@
+PAGINA SEO: ONORANZE FUNEBRI ASTI
+
+URL prevista:
+https://cerimoniefunebrisanpietro.it/onoranze-funebri-asti/
+
+COME CARICARE:
+1. Estrai lo ZIP.
+2. GitHub > repository del sito > Aggiungi file > Carica file.
+3. Trascina tutto il contenuto estratto mantenendo cartelle e file.
+4. Commit sul ramo main.
+5. Messaggio consigliato: Aggiunta pagina SEO Onoranze Funebri Asti
+6. Attendi il deploy Netlify.
+7. Apri l'URL della nuova pagina e verifica che funzioni.
+8. Solo dopo, usa Search Console per controllare l'URL e richiedere l'indicizzazione.
+
+Il pacchetto mantiene anche le ottimizzazioni SEO già presenti.
