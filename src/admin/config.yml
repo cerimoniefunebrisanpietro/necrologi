@@ -16,12 +16,17 @@ collections:
   - name: "necrologi"
     label: "Necrologi"
     label_singular: "Necrologio"
+
     folder: "src/necrologi"
     create: true
     delete: true
-    slug: "{{slug}}"
+
+    identifier_field: "nome_completo"
+    slug: "{{nome_completo}}"
+
     extension: "md"
     format: "frontmatter"
+
     summary: "{{nome_completo}} — {{data_decesso}}"
 
     fields:
