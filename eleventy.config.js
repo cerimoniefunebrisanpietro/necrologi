@@ -1,40 +1,48 @@
 const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
 
-  function toDateTime(value) {
-    if (!value) return null;
+  eleventyConfig.addPassthroughCopy({
+    "src/assets": "assets",
+  });
+
+  eleventyConfig.addPassthroughCopy({
+    "src/admin": "admin",
+  });
+
+  // DATA ITALIANA: 10 ottobre 1940
+  eleventyConfig.addFilter("dateIt", (value) => {
+    if (!value) return "";
+
+    let dt;
 
     if (value instanceof Date) {
-      return DateTime.fromJSDate(value, { zone: "Europe/Rome" });
+      dt = DateTime.fromJSDate(value, { zone: "Europe/Rome" });
+    } else {
+      dt = DateTime.fromISO(String(value), { zone: "Europe/Rome" });
     }
 
-    const str = String(value).trim();
-
-    let dt = DateTime.fromISO(str, { zone: "Europe/Rome" });
-    if (dt.isValid) return dt;
-
-    const jsDate = new Date(str);
-    if (!Number.isNaN(jsDate.getTime())) {
-      return DateTime.fromJSDate(jsDate, { zone: "Europe/Rome" });
-    }
-
-    return null;
-  }
-
-  eleventyConfig.addFilter("dateIt", (value) => {
-    const dt = toDateTime(value);
-    return dt && dt.isValid
-      ? dt.setLocale("it").toFormat("dd LLLL yyyy")
+    return dt.isValid
+      ? dt.setLocale("it").toFormat("d LLLL yyyy")
       : "";
   });
 
+  // DATA + ORA ITALIANA: 18 agosto 2026 alle 19:14
   eleventyConfig.addFilter("dateTimeIt", (value) => {
-    const dt = toDateTime(value);
-    return dt && dt.isValid
-      ? dt.setLocale("it").toFormat("dd LLLL yyyy 'alle' HH:mm")
+    if (!value) return "";
+
+    let dt;
+
+    if (value instanceof Date) {
+      dt = DateTime.fromJSDate(value, { zone: "Europe/Rome" });
+    } else {
+      dt = DateTime.fromISO(String(value), {
+        zone: "Europe/Rome",
+      });
+    }
+
+    return dt.isValid
+      ? dt.setLocale("it").toFormat("d LLLL yyyy 'alle' HH:mm")
       : "";
   });
 
@@ -73,4 +81,3 @@ module.exports = function (eleventyConfig) {
     htmlTemplateEngine: "njk",
   };
 };
-
