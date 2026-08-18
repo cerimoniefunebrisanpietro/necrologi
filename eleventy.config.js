@@ -2,70 +2,93 @@ const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
 
-  // Copia assets nel sito finale
   eleventyConfig.addPassthroughCopy({
     "src/assets": "assets",
   });
 
-  // Copia pannello amministratore
   eleventyConfig.addPassthroughCopy({
     "src/admin": "admin",
   });
 
-  // Formato data italiano
   eleventyConfig.addFilter("dateIt", (value) => {
     if (!value) return "";
 
-    const dt = DateTime.fromISO(String(value), {
-      zone: "Europe/Rome",
-    });
+    let dt;
+
+    if (value instanceof Date) {
+      dt = DateTime.fromJSDate(value, {
+        zone: "Europe/Rome"
+      });
+    } else {
+      dt = DateTime.fromISO(String(value), {
+        zone: "Europe/Rome"
+      });
+    }
 
     return dt.isValid
-      ? dt.setLocale("it").toFormat("d LLLL yyyy")
-      : value;
+      ? dt.setLocale("it").toFormat("dd LLLL yyyy")
+      : "";
   });
 
-  // Formato data e ora italiano
+
   eleventyConfig.addFilter("dateTimeIt", (value) => {
     if (!value) return "";
 
-    const dt = DateTime.fromISO(String(value), {
-      zone: "Europe/Rome",
-    });
+    let dt;
+
+    if (value instanceof Date) {
+      dt = DateTime.fromJSDate(value, {
+        zone: "Europe/Rome"
+      });
+    } else {
+      dt = DateTime.fromISO(String(value), {
+        zone: "Europe/Rome"
+      });
+    }
 
     return dt.isValid
-      ? dt.setLocale("it").toFormat("d LLLL yyyy, HH:mm")
-      : value;
+      ? dt.setLocale("it").toFormat("dd LLLL yyyy 'alle' HH:mm")
+      : "";
   });
 
-  // Tutti i necrologi pubblicati
+
   function getNecrologi(collectionApi) {
+
     return collectionApi
       .getFilteredByGlob("src/necrologi/*.md")
       .filter((item) => item.data.pubblicato !== false)
-      .sort(
-        (a, b) =>
+      .sort((a, b) => {
+        return (
           new Date(b.data.data_decesso || b.date) -
           new Date(a.data.data_decesso || a.date)
-      );
+        );
+      });
   }
 
-  // Raccolta completa
-  eleventyConfig.addCollection("necrologi", getNecrologi);
 
-  // Necrologi attivi
-  eleventyConfig.addCollection("necrologiAttivi", (collectionApi) => {
-    return getNecrologi(collectionApi).filter(
-      (item) => item.data.archiviato !== true
-    );
-  });
+  eleventyConfig.addCollection(
+    "necrologi",
+    getNecrologi
+  );
 
-  // Necrologi archiviati
-  eleventyConfig.addCollection("necrologiArchiviati", (collectionApi) => {
-    return getNecrologi(collectionApi).filter(
-      (item) => item.data.archiviato === true
-    );
-  });
+
+  eleventyConfig.addCollection(
+    "necrologiAttivi",
+    (collectionApi) =>
+      getNecrologi(collectionApi).filter(
+        (item) => item.data.archiviato !== true
+      )
+  );
+
+
+  eleventyConfig.addCollection(
+    "necrologiArchiviati",
+    (collectionApi) =>
+      getNecrologi(collectionApi).filter(
+        (item) => item.data.archiviato === true
+      )
+  );
+
 
   return {
     dir: {
@@ -73,6 +96,7 @@ module.exports = function (eleventyConfig) {
       includes: "_includes",
       output: "_site",
     },
+
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
   };
