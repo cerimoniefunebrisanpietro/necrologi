@@ -16,7 +16,6 @@ collections:
   - name: "necrologi"
     label: "Necrologi"
     label_singular: "Necrologio"
-
     folder: "src/necrologi"
     create: true
     delete: true
@@ -26,14 +25,10 @@ collections:
 
     extension: "md"
     format: "frontmatter"
-
     summary: "{{nome_completo}} — {{data_decesso}}"
 
     fields:
-      - label: "Layout"
-        name: "layout"
-        widget: "hidden"
-        default: "necrologio.njk"
+      - {label: "Layout", name: "layout", widget: "hidden", default: "necrologio.njk"}
 
       - label: "Nome e cognome"
         name: "nome_completo"
