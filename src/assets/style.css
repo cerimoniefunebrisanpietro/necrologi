@@ -92,3 +92,389 @@ h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.12;font-weigh
 @media(max-width:1000px){.necro-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.obit-detail{grid-template-columns:320px minmax(0,1fr);gap:30px}.obit-paper{padding:38px 34px}}
 @media(max-width:780px){.obit-detail{grid-template-columns:1fr}.obit-photo-column{position:static}.portrait{max-width:420px;margin:0 auto}.qrbox{max-width:420px;margin:24px auto 0}.condolences-section .columns{grid-template-columns:1fr}}
 @media(max-width:620px){.necro-hero{padding:70px 0 58px}.necro-grid{grid-template-columns:1fr;gap:22px}.necro-card__photo{aspect-ratio:4/4.7}.necro-card__body{padding:24px 20px 26px}.detail-section{padding:48px 0 58px}.obit-paper{padding:30px 22px}.info-grid{grid-template-columns:1fr}.condolences-section{padding:58px 0}}
+/* =========================================================
+   CERIMONIE FUNEBRI SAN PIETRO
+   NUOVA GRAFICA NECROLOGI — VERSIONE ELEGANTE
+   Incollare TUTTO questo blocco alla FINE di src/assets/style.css
+   ========================================================= */
+
+:root{
+  --n-green:#07392b;
+  --n-green-deep:#04291f;
+  --n-gold:#b68a3a;
+  --n-gold-light:#d8bd7c;
+  --n-ivory:#f8f4ec;
+  --n-paper:#fffefa;
+  --n-text:#24332d;
+  --n-muted:#756f65;
+  --n-border:#e4dac8;
+  --n-shadow:0 20px 55px rgba(12,40,31,.11);
+}
+
+/* HERO */
+.necro-hero{
+  min-height:360px;
+  padding:88px 0 76px;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  color:#fff;
+  background:
+    linear-gradient(180deg,rgba(4,41,31,.80),rgba(4,41,31,.90)),
+    url('/assets/servizio-fiori.jpg') center/cover no-repeat;
+  position:relative;
+}
+
+.necro-hero:before{
+  content:"";
+  position:absolute;
+  inset:18px;
+  border:1px solid rgba(214,180,102,.32);
+  pointer-events:none;
+}
+
+.necro-hero .container{position:relative;z-index:1}
+.necro-hero .eyebrow{
+  color:var(--n-gold-light);
+  letter-spacing:.22em;
+  font-size:.74rem;
+}
+.necro-hero h1{
+  margin:8px 0 10px;
+  font:500 clamp(3.4rem,7vw,6.4rem)/.95 Georgia,"Times New Roman",serif;
+  letter-spacing:-.025em;
+}
+.necro-hero p:last-child{
+  max-width:680px;
+  margin:16px auto 0;
+  font:italic 1.15rem/1.6 Georgia,"Times New Roman",serif;
+  color:rgba(255,255,255,.84);
+}
+
+/* ELENCO */
+.necro-list-section{
+  padding:72px 0 92px;
+  background:
+    radial-gradient(circle at 10% 5%,rgba(182,138,58,.06),transparent 25%),
+    var(--n-ivory);
+}
+
+.necro-list-section .notice{
+  max-width:900px;
+  margin:0 auto 28px;
+  padding:16px 20px;
+  background:#fff;
+  border:1px solid var(--n-border);
+  border-left:4px solid var(--n-gold);
+  color:#5e5a52;
+  box-shadow:0 8px 20px rgba(12,40,31,.04);
+}
+
+.toolbar{
+  max-width:640px;
+  margin:0 auto 42px;
+}
+
+.toolbar input{
+  width:100%;
+  height:50px;
+  padding:0 18px;
+  border:1px solid #d7ccb7;
+  border-radius:0;
+  background:#fff;
+  box-shadow:0 10px 26px rgba(13,42,32,.05);
+}
+
+.toolbar input:focus{
+  outline:none;
+  border-color:var(--n-gold);
+  box-shadow:0 0 0 3px rgba(182,138,58,.12);
+}
+
+.necro-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:28px;
+}
+
+.necro-card{
+  display:flex;
+  flex-direction:column;
+  background:var(--n-paper);
+  border:1px solid var(--n-border);
+  box-shadow:var(--n-shadow);
+  overflow:hidden;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+
+.necro-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 28px 65px rgba(12,40,31,.15);
+}
+
+.necro-card__photo{
+  aspect-ratio:4/5;
+  background:#e9e3d8;
+  overflow:hidden;
+  position:relative;
+}
+
+.necro-card__photo:after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:24%;
+  background:linear-gradient(transparent,rgba(3,39,29,.14));
+}
+
+.necro-card__photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%;
+}
+
+.necro-card__body{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:27px 24px 30px;
+}
+
+.necro-card__body h2{
+  margin:0 0 8px;
+  color:var(--n-green);
+  font:500 2rem/1.05 Georgia,"Times New Roman",serif;
+}
+
+.necro-card__body .meta{
+  margin:0 0 17px;
+  color:var(--n-gold);
+  font:1rem Georgia,"Times New Roman",serif;
+}
+
+.necro-card__body .meta:after{
+  content:"";
+  display:block;
+  width:48px;
+  height:1px;
+  margin:15px auto 0;
+  background:var(--n-gold-light);
+}
+
+.necro-card__body p:not(.meta){
+  margin:0 0 22px;
+  color:var(--n-muted);
+  line-height:1.65;
+}
+
+.necro-card__body .btn{
+  margin-top:auto;
+  min-width:190px;
+  border-radius:0;
+  background:var(--n-green);
+  color:#fff;
+  border:1px solid var(--n-green);
+}
+
+.necro-card__body .btn:hover{
+  background:var(--n-green-deep);
+}
+
+/* DETTAGLIO */
+.detail-hero{
+  padding:18px 0;
+  background:var(--n-green-deep);
+}
+.detail-hero a{
+  color:var(--n-gold-light);
+  text-decoration:none;
+  font-weight:700;
+}
+
+.detail-section{
+  padding:72px 0 88px;
+  background:
+    linear-gradient(90deg,#f7f2e9 0%,#fff 52%,#f7f2e9 100%);
+}
+
+.obit-detail{
+  display:grid;
+  grid-template-columns:minmax(280px,370px) minmax(0,1fr);
+  gap:46px;
+  align-items:start;
+}
+
+.obit-photo-column{
+  position:sticky;
+  top:106px;
+}
+
+.portrait{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  object-position:center 18%;
+  padding:9px;
+  background:#fff;
+  border:1px solid var(--n-border);
+  outline:1px solid rgba(182,138,58,.50);
+  outline-offset:-6px;
+  box-shadow:0 24px 55px rgba(12,40,31,.14);
+  border-radius:0;
+}
+
+.obit-paper{
+  position:relative;
+  padding:50px 52px;
+  background:var(--n-paper);
+  border:1px solid var(--n-border);
+  box-shadow:var(--n-shadow);
+}
+
+.obit-paper:before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(182,138,58,.20);
+  pointer-events:none;
+}
+
+.obit-paper>*{position:relative;z-index:1}
+
+.obit-paper .eyebrow{
+  margin:0 0 12px;
+  color:#8d6826;
+  letter-spacing:.21em;
+  font-size:.72rem;
+}
+
+.obit-paper h1{
+  margin:0;
+  color:var(--n-green);
+  font:500 clamp(3rem,6vw,5.3rem)/.98 Georgia,"Times New Roman",serif;
+}
+
+.obit-paper .dates{
+  margin:14px 0 0;
+  color:var(--n-gold);
+  font:1.2rem Georgia,"Times New Roman",serif;
+}
+
+.obit-text{
+  margin:30px 0;
+  color:#494e49;
+  font:1.22rem/1.85 Georgia,"Times New Roman",serif;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin:30px 0 34px;
+}
+
+.info{
+  padding:18px 19px;
+  background:#f5efe5;
+  border-left:3px solid var(--n-gold);
+  color:#625e56;
+}
+
+.info strong{
+  display:block;
+  margin-bottom:5px;
+  color:var(--n-green);
+  font:600 1.08rem Georgia,"Times New Roman",serif;
+}
+
+.badge{
+  background:#eee3cf;
+  color:#72531e;
+}
+
+/* QR */
+.qrbox{
+  margin-top:22px;
+  padding:24px;
+  background:linear-gradient(145deg,var(--n-green),var(--n-green-deep));
+  color:#fff;
+  border-top:3px solid var(--n-gold);
+}
+
+.qrbox h3{
+  color:var(--n-gold-light);
+  font:500 1.55rem Georgia,"Times New Roman",serif;
+}
+.qrbox p{
+  color:rgba(255,255,255,.72);
+}
+.qrbox canvas,
+.qrbox img{
+  margin:14px auto;
+  padding:10px;
+  background:#fff;
+}
+
+/* CONDOGLIANZE */
+.condolences-section{
+  padding:82px 0;
+  background:#fff;
+}
+
+.condolences-section .section-head h2{
+  color:var(--n-green);
+  font:500 clamp(2.5rem,5vw,4.2rem)/1 Georgia,"Times New Roman",serif;
+}
+
+.condolences-section .columns{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:28px;
+}
+
+.condolences-section .form{
+  padding:32px;
+  background:#fff;
+  border:1px solid var(--n-border);
+  box-shadow:0 14px 35px rgba(12,40,31,.06);
+}
+
+.condolence-aside{
+  padding:42px 34px;
+  background:var(--n-green);
+  color:#fff;
+  border-top:3px solid var(--n-gold);
+}
+
+.condolence-aside h3{
+  color:var(--n-gold-light);
+  font:500 2rem Georgia,"Times New Roman",serif;
+}
+
+/* MOBILE */
+@media(max-width:1000px){
+  .necro-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .obit-detail{grid-template-columns:310px minmax(0,1fr);gap:30px}
+  .obit-paper{padding:40px 34px}
+}
+
+@media(max-width:780px){
+  .obit-detail{grid-template-columns:1fr}
+  .obit-photo-column{position:static}
+  .portrait{max-width:420px;margin:0 auto}
+  .qrbox{max-width:420px;margin:22px auto 0}
+  .condolences-section .columns{grid-template-columns:1fr}
+}
+
+@media(max-width:620px){
+  .necro-hero{min-height:300px;padding:68px 0 56px}
+  .necro-grid{grid-template-columns:1fr;gap:22px}
+  .necro-card__body{padding:24px 20px 27px}
+  .detail-section{padding:48px 0 60px}
+  .obit-paper{padding:30px 22px}
+  .info-grid{grid-template-columns:1fr}
+}
+
