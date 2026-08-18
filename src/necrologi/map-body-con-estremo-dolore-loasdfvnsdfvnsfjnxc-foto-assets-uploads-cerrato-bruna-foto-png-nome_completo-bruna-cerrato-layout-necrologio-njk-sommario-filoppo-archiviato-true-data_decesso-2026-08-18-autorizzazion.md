@@ -10,7 +10,7 @@ rosario_luogo: san pietro
 funerale_luogo: asti
 destinazione: asti
 autorizzazione_famiglia: true
-archiviato: true
+archiviato: false
 pubblicato: true
 ---
 con estremo dolore loasdfvnsdfvnsfjnxc
