@@ -1,27 +1,504 @@
-:root{--green:#063a2a;--green2:#03271d;--gold:#b78933;--gold2:#d6b466;--cream:#f7f2e9;--cream2:#eee6d9;--ink:#172620;--muted:#6d746f;--white:#fff;--line:#ded4c4;--shadow:0 14px 38px rgba(25,39,32,.10)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.65;background:#fff}a{color:inherit}img{max-width:100%;display:block}.container{width:min(1200px,calc(100% - 44px));margin:auto}
-h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.12;font-weight:500}.eyebrow{text-transform:uppercase;letter-spacing:.19em;font-size:.76rem;font-weight:700;color:var(--gold2)}.eyebrow--dark{color:#9c742d}.gold-rule{width:135px;height:1px;background:linear-gradient(90deg,var(--gold),#e0c78f,var(--gold));margin:22px 0}.gold-rule--center{margin:18px auto 0}
-.top-strip{background:var(--green2);color:#fff;font-size:.82rem}.top-strip__inner{min-height:38px;display:flex;align-items:center;justify-content:flex-end;gap:22px;flex-wrap:wrap}.top-strip a{text-decoration:none}
-.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);border-bottom:1px solid #e8e0d5;backdrop-filter:blur(12px)}.nav{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:25px}.brand img{width:300px;height:68px;object-fit:contain;object-position:left center}.menu{display:flex;gap:26px;align-items:center}.menu a{text-decoration:none;text-transform:uppercase;font-size:.78rem;letter-spacing:.05em;font-weight:700}.menu a:hover{color:var(--gold)}.menu-call{background:var(--green);color:white;padding:11px 15px;border-radius:4px}.menu-toggle{display:none;background:none;border:1px solid var(--line);padding:9px 12px}
-.photo-hero{min-height:610px;display:flex;align-items:center;background:linear-gradient(90deg,rgba(247,242,233,.98) 0%,rgba(247,242,233,.91) 47%,rgba(247,242,233,.24) 76%,rgba(5,37,27,.06) 100%),url('/assets/hero-fiori.jpg') right center/56% 100% no-repeat,var(--cream)}.photo-hero__content{padding:80px 22px}.photo-hero__content h1{font-size:clamp(3.2rem,6vw,5.8rem);color:var(--green);margin:10px 0 0;max-width:760px}.lead{font-family:Georgia,serif;font-size:1.25rem;max-width:610px;color:#39443f}.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-block;border-radius:4px;padding:13px 20px;text-decoration:none;font-weight:700;border:1px solid transparent;cursor:pointer}.btn-green{background:var(--green);color:#fff}.btn-gold{background:var(--gold);color:#13261e}.btn-cream{background:rgba(255,255,255,.66);border-color:var(--gold);color:#815d1c}
-.section{padding:78px 0}.section-head{text-align:center;max-width:790px;margin:0 auto 42px}.section-head h2{font-size:clamp(2.3rem,4vw,3.5rem);color:var(--green);margin:6px 0}.services-section{background:#fffdf9}.photo-services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.photo-service{background:#fff;border:1px solid #e3d9ca;box-shadow:var(--shadow);overflow:hidden}.photo-service img{width:100%;height:215px;object-fit:cover}.photo-service>div{padding:23px}.photo-service h3{font-size:1.55rem;color:var(--green);margin:0 0 8px}.photo-service p{margin:0;color:#555f5a}
-.about-photo{background:var(--green);color:#fff}.about-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}.about-copy{padding:55px 60px 55px 0}.about-copy h2{font-size:clamp(2.5rem,4vw,3.6rem);margin:8px 0 20px}.about-copy p{color:#edf2ee}.about-image img{width:100%;height:100%;min-height:480px;object-fit:cover}.check-list{list-style:none;padding:0;margin:25px 0}.check-list li{padding:8px 0 8px 25px;position:relative}.check-list li:before{content:'✓';position:absolute;left:0;color:var(--gold2)}
-.obituaries-home{background:linear-gradient(90deg,#f7f2e9,#fff,#f7f2e9)}.home-necro-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.home-necro-card,.memory-card{background:#fff;border:1px solid #dfd3bf;box-shadow:var(--shadow);text-decoration:none}.home-necro-card img{width:100%;height:230px;object-fit:cover;object-position:center top}.home-necro-card div{padding:18px}.home-necro-card h3{font-size:1.45rem;color:var(--green);margin:0 0 6px}.home-necro-card p{font-size:.9rem;color:var(--muted)}.home-necro-card a{color:#8b651f;text-decoration:none}.memory-card{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;color:var(--green)}.memory-card span{font-size:3rem;margin-bottom:12px}.memory-card strong{font-family:Georgia,serif;font-size:1.5rem}.memory-card small{margin-top:8px;color:var(--muted)}
-.gallery-strip{display:grid;grid-template-columns:repeat(4,1fr)}.gallery-strip__item{height:270px;overflow:hidden}.gallery-strip img{width:100%;height:100%;object-fit:cover;transition:.5s}.gallery-strip__item:hover img{transform:scale(1.04)}
-.contact-band{background:var(--green2);color:#fff}.contact-band__grid{display:grid;grid-template-columns:1fr 1fr .85fr}.contact-band__grid>div:first-child{padding:50px 45px 50px 0}.contact-band h2{font-size:2.5rem;margin:7px 0 22px}.contact-band a{text-decoration:none}.contact-photo img{width:100%;height:100%;min-height:400px;object-fit:cover}.map-card{background:#efe9df;color:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:35px;gap:25px;font-family:Georgia,serif;font-size:1.25rem}
-.necro-hero{padding:90px 0;text-align:center;background:linear-gradient(rgba(3,39,29,.73),rgba(3,39,29,.73)),url('/assets/servizio-fiori.jpg') center/cover;color:white}.necro-hero h1{font-size:clamp(3.5rem,7vw,6rem);margin:8px 0}.necro-list-section{background:var(--cream)}.notice{background:#fff;border-left:4px solid var(--gold);padding:16px 18px;margin-bottom:25px}.toolbar{max-width:560px;margin:0 auto 32px}.toolbar input,input,textarea{width:100%;padding:14px;border:1px solid #cfc4b3;border-radius:4px;font:inherit;background:#fff}.necro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.necro-card{background:#fff;border:1px solid #ddd1bd;box-shadow:var(--shadow)}.necro-card__photo img{width:100%;height:340px;object-fit:cover;object-position:center top}.necro-card__body{padding:24px}.necro-card h2{font-size:2rem;color:var(--green);margin:0 0 6px}.meta{color:#887354}
-.detail-hero{background:var(--green2);color:#fff;padding:22px 0}.detail-hero a{text-decoration:none}.detail-section{background:linear-gradient(90deg,#f5efe5,#fff)}.obit-detail{display:grid;grid-template-columns:370px 1fr;gap:48px;align-items:start}.portrait{width:100%;border:10px solid #fff;outline:1px solid #c9a45d;box-shadow:var(--shadow)}.obit-paper{background:#fff;padding:46px 48px;border:1px solid #ded2c0;box-shadow:var(--shadow);min-height:550px}.obit-paper h1{font-size:clamp(3rem,5vw,5rem);color:var(--green);margin:5px 0 8px}.dates{font-family:Georgia,serif;color:#9a7126;font-size:1.25rem}.obit-text{font-family:Georgia,serif;font-size:1.18rem}.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:28px 0}.info{background:#faf6ef;border-left:2px solid var(--gold);padding:16px}.info strong{display:block;color:var(--green);margin-bottom:5px}.badge{display:inline-block;background:#efe3cc;color:#755316;padding:5px 9px;border-radius:999px;font-size:.8rem}.qrbox{background:var(--green2);color:#fff;text-align:center;padding:24px;margin-top:24px}.qrbox canvas,.qrbox img{background:#fff;padding:10px;max-width:100%;margin:15px auto}.condolences-section{background:var(--cream)}.columns{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}.form{background:#fff;border:1px solid #ded2c0;padding:28px}.row{display:grid;grid-template-columns:1fr 1fr;gap:15px}.group{margin-bottom:16px}.group label{display:block;font-weight:700;color:var(--green);margin-bottom:6px}textarea{min-height:150px}.check{display:flex;gap:10px}.check input{width:auto;margin-top:6px}.condolence-aside{background:var(--green);color:white;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:40px}.condolence-aside span{font-size:4rem}.condolence-aside h3{font-size:2rem}
-.site-footer{background:#111816;color:#dce4df;padding:44px 0 20px}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px}.footer-brand img{width:280px;background:white;padding:8px}.site-footer a{text-decoration:none}.site-footer strong{color:#fff}.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding-top:18px;text-align:center;font-size:.82rem}.floating-call,.floating-whatsapp{position:fixed;right:16px;z-index:70;text-decoration:none;font-weight:700;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.2)}.floating-call{bottom:16px;background:var(--gold);color:#173026;padding:12px 16px}.floating-whatsapp{bottom:68px;background:#fff;color:var(--green);padding:11px 15px;border:1px solid #ddd}.empty{text-align:center;background:#fff;border:1px dashed #ccbfa9;padding:32px}
-@media(max-width:980px){.menu-toggle{display:block}.menu{display:none;position:absolute;left:0;right:0;top:126px;background:#fff;padding:22px;flex-direction:column;box-shadow:0 15px 30px rgba(0,0,0,.12)}.menu.is-open{display:flex}.photo-services{grid-template-columns:repeat(2,1fr)}.home-necro-grid{grid-template-columns:repeat(2,1fr)}.about-grid,.contact-band__grid,.obit-detail,.columns{grid-template-columns:1fr}.about-copy{padding:45px 0}.contact-band__grid>div:first-child{padding:45px 0}.necro-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.photo-hero{background-size:75% 100%;background-position:right center}}
-@media(max-width:620px){.container{width:min(100% - 26px,1200px)}.top-strip__inner{justify-content:center;gap:8px;padding:6px 0}.brand img{width:220px;height:58px}.site-header .nav{min-height:78px}.menu{top:116px}.photo-hero{min-height:560px;background:linear-gradient(rgba(247,242,233,.94),rgba(247,242,233,.87)),url('/assets/hero-fiori.jpg') center/cover}.photo-hero__content{padding:55px 0}.photo-hero__content h1{font-size:3.1rem}.photo-services,.home-necro-grid,.necro-grid,.footer-grid,.info-grid,.row{grid-template-columns:1fr}.gallery-strip{grid-template-columns:1fr 1fr}.gallery-strip__item{height:190px}.obit-paper{padding:28px 22px}.necro-card__photo img{height:360px}}
 
-.sede-authentic-gallery{background:#fffdf9}
-.real-office-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:18px}
-.real-office-grid figure{margin:0;background:#fff;border:1px solid #dfd3bf;box-shadow:var(--shadow);overflow:hidden}
-.real-office-grid img{width:100%;height:320px;object-fit:cover}
-.real-office-grid figure:first-child img{object-position:center 48%}
-.real-office-grid figcaption{padding:13px 16px;font-family:Georgia,"Times New Roman",serif;color:var(--green);font-size:1.05rem}
-@media(max-width:980px){.real-office-grid{grid-template-columns:1fr 1fr}.real-office-grid figure:first-child{grid-column:1/-1}}
-@media(max-width:620px){.real-office-grid{grid-template-columns:1fr}.real-office-grid figure:first-child{grid-column:auto}.real-office-grid img{height:260px}}
+/* =========================================================
+   CERIMONIE FUNEBRI SAN PIETRO
+   RESTYLING PREMIUM NECROLOGI
+   Incollare questo blocco ALLA FINE del CSS principale.
+   ========================================================= */
 
-.seo-local-asti{background:#f7f2e9}.seo-local-copy{max-width:920px;margin:0 auto;font-size:1.08rem}.seo-local-copy p{margin:0 0 18px}
+:root{
+  --sp-green:#0b3b2d;
+  --sp-green-2:#14523f;
+  --sp-gold:#b89549;
+  --sp-gold-soft:#d7c28f;
+  --sp-ivory:#f7f3eb;
+  --sp-paper:#fffdf8;
+  --sp-ink:#25312d;
+  --sp-muted:#746f66;
+  --sp-line:#e3d9c6;
+  --sp-shadow:0 18px 48px rgba(21,48,38,.10);
+}
+
+/* ---------- HERO NECROLOGI ---------- */
+.necro-hero{
+  padding:92px 0 78px;
+  text-align:center;
+  color:#fff;
+  background:
+    radial-gradient(circle at 50% 20%,rgba(184,149,73,.16),transparent 34%),
+    linear-gradient(135deg,#082f24 0%,#0b3b2d 58%,#164f3f 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+.necro-hero:after{
+  content:"";
+  position:absolute;
+  width:360px;
+  height:360px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:50%;
+  right:-120px;
+  bottom:-210px;
+}
+
+.necro-hero .eyebrow{
+  margin:0 0 8px;
+  color:#e6cf94;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.78rem;
+  font-weight:700;
+}
+
+.necro-hero h1{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(3.2rem,7vw,5.8rem);
+  font-weight:500;
+  line-height:1;
+  letter-spacing:-.02em;
+}
+
+.necro-hero p:last-child{
+  margin:16px auto 0;
+  max-width:650px;
+  color:rgba(255,255,255,.82);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.18rem;
+  font-style:italic;
+}
+
+.gold-rule{
+  width:86px;
+  height:2px;
+  margin:20px 0;
+  background:linear-gradient(90deg,transparent,var(--sp-gold),transparent);
+}
+
+.gold-rule--center{margin-left:auto;margin-right:auto;}
+
+/* ---------- LISTA NECROLOGI ---------- */
+.necro-list-section{
+  background:
+    linear-gradient(rgba(247,243,235,.96),rgba(247,243,235,.96));
+}
+
+.necro-list-section .notice{
+  max-width:850px;
+  margin:0 auto 30px;
+  padding:17px 20px;
+  border:1px solid var(--sp-line);
+  border-left:4px solid var(--sp-gold);
+  background:rgba(255,255,255,.78);
+  color:#5d5b55;
+  border-radius:0;
+  box-shadow:none;
+}
+
+.toolbar{
+  max-width:720px;
+  margin:0 auto 44px;
+}
+
+.toolbar input{
+  width:100%;
+  padding:15px 18px;
+  border:1px solid #d8cdb8;
+  background:#fff;
+  border-radius:0;
+  color:var(--sp-ink);
+  font:inherit;
+  box-shadow:0 8px 22px rgba(23,49,40,.05);
+}
+
+.toolbar input:focus{
+  outline:none;
+  border-color:var(--sp-gold);
+  box-shadow:0 0 0 3px rgba(184,149,73,.12);
+}
+
+.necro-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:30px;
+  align-items:stretch;
+}
+
+.necro-card{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  background:var(--sp-paper);
+  border:1px solid var(--sp-line);
+  border-top:3px solid var(--sp-gold);
+  box-shadow:var(--sp-shadow);
+  transition:transform .25s ease,box-shadow .25s ease;
+  overflow:hidden;
+}
+
+.necro-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 24px 56px rgba(21,48,38,.14);
+}
+
+.necro-card__photo{
+  position:relative;
+  background:#ece7dc;
+  overflow:hidden;
+  aspect-ratio:4/5;
+}
+
+.necro-card__photo:after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:28%;
+  background:linear-gradient(transparent,rgba(8,47,36,.14));
+  pointer-events:none;
+}
+
+.necro-card__photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 22%;
+  display:block;
+  transition:transform .5s ease;
+}
+
+.necro-card:hover .necro-card__photo img{
+  transform:scale(1.025);
+}
+
+.necro-card__body{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  text-align:center;
+  padding:28px 26px 30px;
+}
+
+.necro-card__body h2{
+  margin:0 0 8px;
+  color:var(--sp-green);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(1.65rem,2.4vw,2.15rem);
+  line-height:1.08;
+  font-weight:500;
+}
+
+.necro-card__body .meta{
+  margin:0 0 18px;
+  color:var(--sp-gold);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1rem;
+  letter-spacing:.01em;
+}
+
+.necro-card__body .meta:after{
+  content:"";
+  display:block;
+  width:52px;
+  height:1px;
+  margin:16px auto 0;
+  background:var(--sp-gold-soft);
+}
+
+.necro-card__body p:not(.meta){
+  margin:0 0 22px;
+  color:var(--sp-muted);
+  line-height:1.65;
+}
+
+.necro-card__body .btn{
+  margin-top:auto;
+  align-self:center;
+  min-width:190px;
+}
+
+.empty{
+  grid-column:1/-1;
+  padding:55px 25px;
+  text-align:center;
+  background:rgba(255,255,255,.82);
+  border:1px dashed #cdbf9f;
+  color:var(--sp-muted);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.25rem;
+}
+
+/* ---------- PAGINA SINGOLO NECROLOGIO ---------- */
+.detail-hero{
+  padding:22px 0;
+  background:#0b3b2d;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+.detail-hero a{
+  color:#ead7a4;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.detail-section{
+  padding:72px 0 86px;
+  background:
+    radial-gradient(circle at 15% 12%,rgba(184,149,73,.08),transparent 25%),
+    var(--sp-ivory);
+}
+
+.obit-detail{
+  display:grid;
+  grid-template-columns:minmax(280px,380px) minmax(0,1fr);
+  gap:46px;
+  align-items:start;
+}
+
+.obit-photo-column{
+  position:sticky;
+  top:105px;
+}
+
+.portrait{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  object-position:center 20%;
+  display:block;
+  padding:8px;
+  background:#fff;
+  border:1px solid var(--sp-line);
+  box-shadow:0 20px 46px rgba(19,48,37,.14);
+  border-radius:0;
+}
+
+.obit-paper{
+  position:relative;
+  padding:46px 48px;
+  background:var(--sp-paper);
+  border:1px solid var(--sp-line);
+  border-top:4px solid var(--sp-gold);
+  box-shadow:var(--sp-shadow);
+}
+
+.obit-paper:before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid rgba(184,149,73,.20);
+  pointer-events:none;
+}
+
+.obit-paper > *{position:relative;z-index:1;}
+
+.obit-paper .eyebrow{
+  margin:0 0 12px;
+  color:#92702f;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  font-size:.76rem;
+  font-weight:700;
+}
+
+.obit-paper h1{
+  margin:0;
+  color:var(--sp-green);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(3rem,6vw,5.2rem);
+  line-height:.98;
+  font-weight:500;
+  letter-spacing:-.025em;
+}
+
+.obit-paper .dates{
+  margin:16px 0 4px;
+  color:var(--sp-gold);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.18rem;
+}
+
+.obit-text{
+  margin:30px 0;
+  color:#4d514d;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.22rem;
+  line-height:1.85;
+}
+
+.obit-text p:first-child{margin-top:0;}
+.obit-text p:last-child{margin-bottom:0;}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin:32px 0;
+}
+
+.info{
+  padding:19px 20px;
+  background:#f4efe5;
+  border-left:2px solid var(--sp-gold);
+  color:#5e5c55;
+  line-height:1.55;
+}
+
+.info strong{
+  display:block;
+  margin-bottom:5px;
+  color:var(--sp-green);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.08rem;
+  font-weight:600;
+}
+
+.badge{
+  display:inline-block;
+  margin-bottom:14px;
+  padding:5px 10px;
+  background:#eee4cf;
+  color:#785d27;
+  border-radius:999px;
+  font-size:.78rem;
+  font-weight:700;
+}
+
+/* ---------- QR CODE ---------- */
+.qrbox{
+  margin-top:24px;
+  padding:26px 22px;
+  text-align:center;
+  background:linear-gradient(145deg,#0b3b2d,#082d23);
+  color:#fff;
+  border-radius:0;
+  box-shadow:0 14px 34px rgba(15,42,32,.15);
+}
+
+.qrbox h3{
+  margin:0 0 10px;
+  color:#ead49f;
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:500;
+}
+
+.qrbox p{
+  color:rgba(255,255,255,.72);
+  font-size:.9rem;
+}
+
+.qrbox canvas,
+.qrbox img{
+  max-width:100%;
+  margin:16px auto;
+  padding:10px;
+  background:#fff;
+}
+
+/* ---------- CONDOGLIANZE ---------- */
+.condolences-section{
+  padding:82px 0;
+  background:#fff;
+}
+
+.condolences-section .section-head h2{
+  margin:5px 0 0;
+  color:var(--sp-green);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2.3rem,4.5vw,4rem);
+  font-weight:500;
+}
+
+.condolences-section .columns{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:28px;
+  align-items:stretch;
+}
+
+.condolences-section .form{
+  padding:32px;
+  background:#fff;
+  border:1px solid var(--sp-line);
+  box-shadow:0 12px 35px rgba(25,50,41,.06);
+}
+
+.condolence-aside{
+  padding:42px 34px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:#0b3b2d;
+  color:#fff;
+  border-top:3px solid var(--sp-gold);
+}
+
+.condolence-aside span{
+  font-size:3.2rem;
+  margin-bottom:12px;
+}
+
+.condolence-aside h3{
+  margin:0 0 12px;
+  color:#ead49f;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:2rem;
+  font-weight:500;
+}
+
+.condolence-aside p{
+  max-width:360px;
+  margin:0;
+  color:rgba(255,255,255,.78);
+}
+
+/* ---------- BOTTONI ---------- */
+.btn-green{
+  background:var(--sp-green);
+  color:#fff;
+  border:1px solid var(--sp-green);
+}
+
+.btn-green:hover{
+  background:#082f24;
+}
+
+.btn-gold{
+  background:var(--sp-gold);
+  color:#14281f;
+  border:1px solid var(--sp-gold);
+}
+
+.btn-gold:hover{
+  background:#c7a65c;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1000px){
+  .necro-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .obit-detail{grid-template-columns:320px minmax(0,1fr);gap:30px;}
+  .obit-paper{padding:38px 34px;}
+}
+
+@media(max-width:780px){
+  .obit-detail{grid-template-columns:1fr;}
+  .obit-photo-column{position:static;}
+  .portrait{max-width:420px;margin:0 auto;}
+  .qrbox{max-width:420px;margin:24px auto 0;}
+  .condolences-section .columns{grid-template-columns:1fr;}
+}
+
+@media(max-width:620px){
+  .necro-hero{padding:70px 0 58px;}
+  .necro-grid{grid-template-columns:1fr;gap:22px;}
+  .necro-card__photo{aspect-ratio:4/4.7;}
+  .necro-card__body{padding:24px 20px 26px;}
+  .detail-section{padding:48px 0 58px;}
+  .obit-paper{padding:30px 22px;}
+  .obit-paper:before{inset:8px;}
+  .obit-paper h1{font-size:2.75rem;}
+  .info-grid{grid-template-columns:1fr;}
+  .condolences-section{padding:58px 0;}
+  .condolences-section .form{padding:24px 18px;}
+}
