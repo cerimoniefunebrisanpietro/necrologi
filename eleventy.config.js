@@ -1,14 +1,18 @@
 const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
+
+  // Copia assets nel sito finale
   eleventyConfig.addPassthroughCopy({
     "src/assets": "assets",
   });
 
+  // Copia pannello amministratore
   eleventyConfig.addPassthroughCopy({
     "src/admin": "admin",
   });
 
+  // Formato data italiano
   eleventyConfig.addFilter("dateIt", (value) => {
     if (!value) return "";
 
@@ -21,6 +25,7 @@ module.exports = function (eleventyConfig) {
       : value;
   });
 
+  // Formato data e ora italiano
   eleventyConfig.addFilter("dateTimeIt", (value) => {
     if (!value) return "";
 
@@ -33,9 +38,10 @@ module.exports = function (eleventyConfig) {
       : value;
   });
 
+  // Tutti i necrologi pubblicati
   function getNecrologi(collectionApi) {
     return collectionApi
-      .getFilteredByGlob("necrologi/*.md")
+      .getFilteredByGlob("src/necrologi/*.md")
       .filter((item) => item.data.pubblicato !== false)
       .sort(
         (a, b) =>
@@ -44,19 +50,22 @@ module.exports = function (eleventyConfig) {
       );
   }
 
+  // Raccolta completa
   eleventyConfig.addCollection("necrologi", getNecrologi);
 
-  eleventyConfig.addCollection("necrologiAttivi", (collectionApi) =>
-    getNecrologi(collectionApi).filter(
+  // Necrologi attivi
+  eleventyConfig.addCollection("necrologiAttivi", (collectionApi) => {
+    return getNecrologi(collectionApi).filter(
       (item) => item.data.archiviato !== true
-    )
-  );
+    );
+  });
 
-  eleventyConfig.addCollection("necrologiArchiviati", (collectionApi) =>
-    getNecrologi(collectionApi).filter(
+  // Necrologi archiviati
+  eleventyConfig.addCollection("necrologiArchiviati", (collectionApi) => {
+    return getNecrologi(collectionApi).filter(
       (item) => item.data.archiviato === true
-    )
-  );
+    );
+  });
 
   return {
     dir: {
