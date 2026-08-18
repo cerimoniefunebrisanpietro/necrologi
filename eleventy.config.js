@@ -35,7 +35,7 @@ module.exports = function (eleventyConfig) {
 
   function getNecrologi(collectionApi) {
     return collectionApi
-      .getFilteredByGlob("src/necrologi/*.md")
+      .getFilteredByGlob("necrologi/*.md")
       .filter((item) => item.data.pubblicato !== false)
       .sort(
         (a, b) =>
