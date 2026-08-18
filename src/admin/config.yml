@@ -3,7 +3,7 @@ backend:
   repo: cerimoniefunebrisanpietro/necrologi
   branch: main
 
-media_folder: "fonte/assets/uploads"
+media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"
 
 site_url: "https://www.cerimoniefunebrisanpietro.it"
@@ -16,7 +16,7 @@ collections:
   - name: "necrologi"
     label: "Necrologi"
     label_singular: "Necrologio"
-    folder: "fonte/necrologi"
+    folder: "src/necrologi"
     create: true
     delete: true
     slug: "{{slug}}"
