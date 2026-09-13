@@ -11,7 +11,17 @@ permalink: /necrologi/index.html
 <div class="toolbar"><input id="search" type="search" placeholder="Cerca per nome e cognome"></div>
 <div class="necro-grid">
 {% for item in collections.necrologiAttivi %}
-<article class="necro-card" data-name="{{ item.data.nome_completo | lower }}"><div class="necro-card__photo"><img src="{{ item.data.foto }}" alt="Foto di {{ item.data.nome_completo }}"></div><div class="necro-card__body"><h2>{{ item.data.nome_completo }}</h2><p class="meta">{{ item.data.data_nascita | dateIt }} — {{ item.data.data_decesso | dateIt }}</p><p>{{ item.data.sommario }}</p><a class="btn btn-green" href="{{ item.url }}">Leggi il necrologio</a></div></article>
+<article class="necro-card" data-name="{{ item.data.nome_completo | lower }}">
+  <div class="necro-card__photo"><img src="{{ item.data.foto }}" alt="Foto di {{ item.data.nome_completo }}"></div>
+  <div class="necro-card__body">
+    <span class="necro-card__eyebrow">Nel ricordo</span>
+    <h2>{{ item.data.nome_completo }}</h2>
+    <div class="necro-card__rule"></div>
+    <p class="necro-card__dates">{{ item.data.data_nascita | dateIt }} <span>—</span> {{ item.data.data_decesso | dateIt }}</p>
+    {% if item.data.sommario %}<p class="necro-card__summary">{{ item.data.sommario }}</p>{% endif %}
+    <a class="necro-card__link" href="{{ item.url }}">Apri il necrologio <span aria-hidden="true">→</span></a>
+  </div>
+</article>
 {% else %}<div class="empty">Al momento non sono presenti necrologi pubblicati.</div>{% endfor %}
 </div></div></section></main>
 <script>const i=document.getElementById('search');if(i)i.addEventListener('input',()=>{const q=i.value.toLowerCase().trim();document.querySelectorAll('[data-name]').forEach(c=>c.style.display=c.dataset.name.includes(q)?'':'none')});</script>

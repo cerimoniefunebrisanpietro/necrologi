@@ -9,28 +9,22 @@ module.exports = function (eleventyConfig) {
     "src/admin": "admin",
   });
 
+  function parseDate(value) {
+    if (!value) return null;
+    if (DateTime.isDateTime(value)) return value;
+    if (value instanceof Date) return DateTime.fromJSDate(value, { zone: "utc" });
+    const iso = DateTime.fromISO(String(value), { zone: "Europe/Rome" });
+    return iso.isValid ? iso : null;
+  }
+
   eleventyConfig.addFilter("dateIt", (value) => {
-    if (!value) return "";
-
-    const dt = DateTime.fromISO(String(value), {
-      zone: "Europe/Rome",
-    });
-
-    return dt.isValid
-      ? dt.setLocale("it").toFormat("d LLLL yyyy")
-      : value;
+    const dt = parseDate(value);
+    return dt ? dt.setLocale("it").toFormat("d LLLL yyyy") : "";
   });
 
   eleventyConfig.addFilter("dateTimeIt", (value) => {
-    if (!value) return "";
-
-    const dt = DateTime.fromISO(String(value), {
-      zone: "Europe/Rome",
-    });
-
-    return dt.isValid
-      ? dt.setLocale("it").toFormat("d LLLL yyyy, HH:mm")
-      : value;
+    const dt = parseDate(value);
+    return dt ? dt.setZone("Europe/Rome").setLocale("it").toFormat("d LLLL yyyy, HH:mm") : "";
   });
 
   function getNecrologi(collectionApi) {
