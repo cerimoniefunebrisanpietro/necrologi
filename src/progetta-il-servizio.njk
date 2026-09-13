@@ -1,0 +1,46 @@
+---
+layout: base.njk
+title: Stima servizio funebre ad Asti | Cerimonie Funebri San Pietro
+description: Crea una stima indicativa e personalizzata del servizio funebre e invia le tue scelte su WhatsApp a Cerimonie Funebri San Pietro.
+permalink: /progetta-il-servizio/index.html
+---
+<main class="planner-page">
+<section class="planner-hero"><div class="container"><p class="eyebrow">Scelte chiare, senza impegno</p><h1>Progetta il servizio</h1><p>Scegli ciò che ritieni necessario. Vedrai soltanto la stima complessiva al termine e potrai inviare la richiesta per un colloquio riservato.</p></div></section>
+<section class="section"><div class="container planner-layout">
+<form id="planner" class="planner-form">
+<fieldset><legend>1. Servizi principali</legend>
+<label class="choice"><input type="checkbox" data-name="Diritti di agenzia" data-price="350" checked><span><strong>Diritti di agenzia</strong><small>Gestione e coordinamento del servizio</small></span></label>
+<label class="choice"><input type="checkbox" data-name="Auto funebre e necrofori in Asti" data-price="600" checked><span><strong>Auto funebre e necrofori in Asti</strong><small>Servizio locale</small></span></label>
+<label class="choice"><input type="checkbox" data-name="Affissioni" data-price="120"><span><strong>Affissioni</strong></span></label>
+</fieldset>
+<fieldset><legend>2. Cofano</legend>
+<label class="choice"><input type="radio" name="cofano" data-name="Cofano liscio" data-price="1000"><span><strong>Cofano liscio</strong></span></label>
+<label class="choice"><input type="radio" name="cofano" data-name="Cofano figurato Cristo/Madonna" data-price="1200"><span><strong>Cofano figurato Cristo/Madonna</strong></span></label>
+<label class="choice"><input type="radio" name="cofano" data-name="Cofano lusso noce" data-price="1800"><span><strong>Cofano lusso noce</strong></span></label>
+<label class="choice"><input type="radio" name="cofano" data-name="Cofano per cremazione" data-price="1500"><span><strong>Cofano per cremazione</strong></span></label>
+</fieldset>
+<fieldset><legend>3. Interno e accessori</legend>
+<label class="choice"><input type="radio" name="imbottitura" data-name="Imbottitura in raso" data-price="140"><span><strong>Imbottitura in raso</strong></span></label>
+<label class="choice"><input type="radio" name="imbottitura" data-name="Imbottitura sartoriale" data-price="200"><span><strong>Imbottitura sartoriale</strong></span></label>
+<label class="choice"><input type="checkbox" data-name="Accessori cofano" data-price="190"><span><strong>Accessori cofano</strong><small>4 maniglie, croce e targhetta</small></span></label>
+<label class="choice"><input type="checkbox" data-name="Controcassa zincata" data-price="290"><span><strong>Controcassa zincata</strong></span></label>
+<label class="choice"><input type="checkbox" data-name="Presidi per cremazione" data-price="145"><span><strong>Presidi per cremazione</strong></span></label>
+</fieldset>
+<fieldset><legend>4. Copribara</legend>
+<label class="choice"><input type="radio" name="copribara" data-name="Copribara a cuscino" data-price="200"><span><strong>Copribara a cuscino</strong></span></label>
+<label class="choice"><input type="radio" name="copribara" data-name="Copribara mezza bara" data-price="250"><span><strong>Copribara mezza bara</strong></span></label>
+<label class="choice"><input type="radio" name="copribara" data-name="Copribara bara intera" data-price="420"><span><strong>Copribara bara intera</strong></span></label>
+</fieldset>
+<fieldset><legend>5. Altre richieste</legend><label for="note">Scrivi ciò che desideri aggiungere</label><textarea id="note" rows="4" placeholder="Fiori, ricordini, trasporto, cerimonia civile o religiosa, altre necessità…"></textarea></fieldset>
+</form>
+<aside class="estimate-card"><p class="eyebrow eyebrow--dark">La tua simulazione</p><h2>Il servizio che hai composto</h2><div id="summary" class="estimate-summary"></div><button id="calculateEstimate" class="btn btn-gold planner-calculate" type="button">Calcola la stima finale</button>
+<div id="estimateResult" hidden><p class="estimate-caption">Stima complessiva indicativa</p><div id="estimate" class="estimate-total"></div>
+<div class="estimate-warning"><strong>Informazione importante</strong><p>Questa simulazione è puramente indicativa e non costituisce un preventivo o un'offerta vincolante. Sono esclusi lapide, monumenti, cippi, acquisto di celletta, loculo o fossa, tasse e diritti cimiteriali e ogni tariffa richiesta da Comuni o soggetti terzi. Disponibilità e prezzo definitivo devono essere confermati presso il nostro ufficio.</p></div>
+<a id="sendEstimate" class="btn btn-green planner-whatsapp" href="#" target="_blank" rel="noopener">Invia la richiesta su WhatsApp</a></div><a class="planner-call" href="tel:+393272648122">Oppure chiama H24: 327 264 8122</a></aside>
+</div></section></main>
+<script>
+(function(){const form=document.getElementById('planner'),total=document.getElementById('estimate'),summary=document.getElementById('summary'),send=document.getElementById('sendEstimate'),note=document.getElementById('note'),calculate=document.getElementById('calculateEstimate'),result=document.getElementById('estimateResult');
+function selected(){return [...form.querySelectorAll('input[data-price]:checked')]}
+function refresh(){const items=selected();summary.innerHTML=items.length?'<ul>'+items.map(i=>'<li><span>'+i.dataset.name+'</span></li>').join('')+'</ul>':'<p>Seleziona le voci desiderate.</p>';result.hidden=true;calculate.hidden=false}
+calculate.addEventListener('click',()=>{const items=selected(),amount=items.reduce((sum,input)=>sum+Number(input.dataset.price),0);if(!items.length){alert('Seleziona almeno un servizio.');return}total.textContent=new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(amount);const lines=items.map(i=>'• '+i.dataset.name);let msg='Buongiorno, ho composto un servizio sul sito Cerimonie Funebri San Pietro.\n\n'+lines.join('\n')+'\n\nStima complessiva indicativa: '+total.textContent;if(note.value.trim())msg+='\n\nAltre richieste: '+note.value.trim();msg+='\n\nVorrei richiedere un colloquio riservato e un preventivo definitivo.';send.href='https://wa.me/393272648122?text='+encodeURIComponent(msg);result.hidden=false;calculate.hidden=true;result.scrollIntoView({behavior:'smooth',block:'nearest'})});form.addEventListener('change',refresh);note.addEventListener('input',refresh);refresh()})();
+</script>
