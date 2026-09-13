@@ -1,0 +1,22 @@
+AGGIORNAMENTO SITO SAN PIETRO - NECROLOGI E CONTATTI
+
+Questo pacchetto corregge la creazione delle pagine singole dei necrologi.
+
+IMPORTANTE PER NON PERDERE I NECROLOGI ESISTENTI
+- Caricare i file del pacchetto nel repository GitHub esistente.
+- Non cancellare la cartella src/necrologi già presente su GitHub.
+- Se GitHub chiede di sostituire file omonimi, confermare.
+- Netlify ricompila automaticamente il sito dopo il caricamento.
+
+VERIFICA DOPO LA PUBBLICAZIONE
+1. Aprire https://cerimoniefunebrisanpietro.it/necrologi/
+2. Aprire un necrologio dall'elenco.
+3. Controllare che la pagina abbia un indirizzo del tipo /necrologi/nome-cognome/
+4. Provare il pulsante WhatsApp e il pulsante di chiamata da Chrome sul telefono.
+
+NOVITA
+- Correzione pubblicazione pagina singola necrologio.
+- Nuova pagina Cosa fare in caso di decesso ad Asti.
+- Nuova pagina Preventivo funerale ad Asti.
+- Messaggi WhatsApp già compilati per facilitare il contatto.
+- Dati strutturati, link canonici, sitemap e reindirizzamento dal vecchio dominio.
