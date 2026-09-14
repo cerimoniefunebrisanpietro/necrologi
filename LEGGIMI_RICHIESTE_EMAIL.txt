@@ -1,0 +1,12 @@
+RICHIESTE PREVENTIVO: WHATSAPP + E-MAIL
+
+Il modulo invia le richieste a Netlify Forms e apre WhatsApp verso il numero 327 264 8122.
+
+DOPO IL PRIMO DEPLOY:
+1. Apri il progetto su Netlify.
+2. Vai in Forms e controlla che compaia "richiesta-preventivo".
+3. Apri Form notifications / Notifications.
+4. Aggiungi una notifica e-mail a iofsanpietro@gmail.com.
+5. Salva e fai una richiesta di prova dal sito.
+
+Il numero di eventuali altri destinatari non è stato inserito.
