@@ -1,0 +1,25 @@
+---
+permalink: /admin/condividi/index.html
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Condividi necrologi | San Pietro</title>
+<style>
+:root{--green:#063a2a;--gold:#b78933;--cream:#f7f2e9;--ink:#172620}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif}.head{background:var(--green);color:#fff;padding:24px}.head__in,.wrap{width:min(1050px,calc(100% - 28px));margin:auto}.head__in{display:flex;justify-content:space-between;align-items:center;gap:15px}.head h1{font-family:Georgia,serif;font-weight:500;margin:0}.head a{color:#fff}.wrap{padding:34px 0}.intro{margin:0 0 25px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}.card{background:#fff;border:1px solid #ded4c4;box-shadow:0 10px 30px rgba(25,39,32,.08);overflow:hidden}.card img{width:100%;height:250px;object-fit:cover;object-position:center top}.body{padding:20px}.body h2{font-family:Georgia,serif;color:var(--green);font-weight:500;margin:0 0 15px}.actions{display:flex;flex-wrap:wrap;gap:8px}.button{border:1px solid var(--green);border-radius:4px;background:var(--green);color:#fff;padding:10px 12px;text-decoration:none;font:700 13px Arial;cursor:pointer}.button.alt{background:#fff;color:var(--green)}.status{display:block;min-height:20px;margin-top:10px;color:#6f675d;font-size:13px}.empty{padding:30px;background:#fff;border:1px solid #ded4c4}@media(max-width:560px){.head__in{align-items:flex-start;flex-direction:column}.card img{height:220px}}
+</style></head><body>
+<header class="head"><div class="head__in"><h1>Condividi necrologi</h1><a href="/admin/">← Torna alla gestione</a></div></header>
+<main class="wrap"><p class="intro">Seleziona un necrologio già pubblicato. Questi comandi sono disponibili soltanto da questa pagina di gestione e non compaiono nelle pagine visitate dal pubblico.</p>
+{% if collections.necrologi.length %}<div class="grid">
+{% for item in collections.necrologi %}<article class="card" data-name="{{ item.data.nome_completo }}" data-url="https://cerimoniefunebrisanpietro.it{{ item.url }}" data-photo="https://cerimoniefunebrisanpietro.it{{ item.data.foto }}">
+<img src="{{ item.data.foto }}" alt="Foto di {{ item.data.nome_completo }}"><div class="body"><h2>{{ item.data.nome_completo }}</h2><div class="actions">
+<a class="button facebook" href="#" target="_blank" rel="noopener">Facebook</a>
+<a class="button whatsapp" href="#" target="_blank" rel="noopener">WhatsApp</a>
+<button class="button instagram" type="button">Instagram / condividi foto</button>
+<button class="button alt copy" type="button">Copia link</button>
+<a class="button alt photo" href="{{ item.data.foto }}" download>Scarica foto</a>
+<a class="button alt" href="{{ item.url }}" target="_blank">Apri necrologio</a>
+</div><small class="status" role="status" aria-live="polite"></small></div></article>{% endfor %}
+</div>{% else %}<div class="empty">Non risultano necrologi pubblicati.</div>{% endif %}</main>
+<script>
+document.querySelectorAll('.card').forEach(card=>{const name=card.dataset.name,url=card.dataset.url,photo=card.dataset.photo,status=card.querySelector('.status'),text='Necrologio di '+name+' – Cerimonie Funebri San Pietro';card.querySelector('.facebook').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);card.querySelector('.whatsapp').href='https://wa.me/?text='+encodeURIComponent(text+'\n'+url);card.querySelector('.copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(url);status.textContent='Link copiato.'}catch(e){status.textContent='Copia il link dalla pagina del necrologio.'}});card.querySelector('.instagram').addEventListener('click',async()=>{try{const response=await fetch(photo);const blob=await response.blob();const ext=(blob.type.split('/')[1]||'jpg').replace('jpeg','jpg');const file=new File([blob],'necrologio-'+name.toLowerCase().replace(/[^a-z0-9]+/gi,'-')+'.'+ext,{type:blob.type});if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:text,text:text+'\n'+url});status.textContent='Scegli Instagram dall’elenco delle applicazioni.'}else{await navigator.clipboard.writeText(text+'\n'+url);status.textContent='Il testo e il link sono stati copiati: scarica la foto e apri Instagram.'}}catch(e){status.textContent='Scarica la foto, copia il link e apri Instagram.'}})});
+</script></body></html>
