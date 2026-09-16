@@ -1,0 +1,16 @@
+PACCHETTO AGGIORNAMENTO SITO CERIMONIE FUNEBRI SAN PIETRO
+
+1. Aprire il repository GitHub "necrologi".
+2. Selezionare Add file > Upload files.
+3. Trascinare la cartella "src" contenuta nel pacchetto.
+4. Confermare con Commit changes direttamente sul ramo main.
+5. Attendere il nuovo deploy automatico di Netlify.
+
+Il pacchetto comprende:
+- pagina interattiva "Cosa fare subito";
+- pagina "Cremazione: una scelta consapevole";
+- candela realistica nelle pagine dei necrologi;
+- pulsante "Parla con l'esperto" con foto corretta;
+- collegamenti e stile aggiornati.
+
+Non include robots.txt.njk e sitemap.xml.njk, così non crea duplicati con i file già presenti nel repository.
