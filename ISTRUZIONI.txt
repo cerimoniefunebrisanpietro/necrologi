@@ -1,0 +1,18 @@
+SITO COMPLETO CERIMONIE FUNEBRI SAN PIETRO
+
+Questo pacchetto contiene l'intero progetto necessario a GitHub e Netlify.
+
+CARICAMENTO SU GITHUB
+1. Decomprimi questo ZIP sul computer.
+2. Apri il repository GitHub "necrologi".
+3. Seleziona Add file > Upload files.
+4. Carica TUTTO il contenuto estratto: src, eleventy.config.js,
+   netlify.toml, package.json, package-lock.json e questo file.
+5. Conferma con Commit changes sul ramo main.
+6. Attendi il deploy automatico di Netlify.
+
+Il pacchetto comprende il sito completo, il pannello necrologi, le pagine
+informative, la candela realistica e il pulsante "Parla con l'esperto"
+con la fotografia corretta.
+
+Non contiene node_modules o _site: Netlify li genera automaticamente.
