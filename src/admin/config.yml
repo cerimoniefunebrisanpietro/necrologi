@@ -17,6 +17,7 @@ collections:
     folder: "src/necrologi"
     create: true
     delete: true
+    identifier_field: "nome_completo"
     slug: "{{slug}}"
     extension: "md"
     format: "frontmatter"
