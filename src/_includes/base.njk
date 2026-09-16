@@ -10,7 +10,12 @@
   <meta property="og:title" content="{{ title or 'Cerimonie Funebri San Pietro' }}">
   <meta property="og:description" content="{{ description or 'Assistenza funebre H24 ad Asti e provincia.' }}">
   <meta property="og:url" content="https://cerimoniefunebrisanpietro.it{{ page.url }}">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{{ og_type or 'website' }}">
+  <meta property="og:site_name" content="Cerimonie Funebri San Pietro">
+  {% if foto %}<meta property="og:image" content="https://cerimoniefunebrisanpietro.it{{ foto }}">
+  <meta property="og:image:alt" content="Foto di {{ nome_completo }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://cerimoniefunebrisanpietro.it{{ foto }}">{% else %}<meta property="og:image" content="https://cerimoniefunebrisanpietro.it/assets/logo-san-pietro.jpg">{% endif %}
   <link rel="stylesheet" href="/assets/style.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FuneralHome","name":"Cerimonie Funebri San Pietro di Bufalino Manola Simone","url":"https://cerimoniefunebrisanpietro.it","telephone":"+393272648122","email":"iofsanpietro@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Corso Savona 487","postalCode":"14100","addressLocality":"Asti","addressRegion":"AT","addressCountry":"IT"},"areaServed":"Asti e provincia","openingHours":"Mo-Su 00:00-23:59"}</script>
 </head>

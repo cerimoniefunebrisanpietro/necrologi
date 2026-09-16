@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+og_type: article
 eleventyComputed:
   title: "{{ nome_completo }} – Necrologio | Cerimonie Funebri San Pietro"
   description: "Necrologio di {{ nome_completo }}: informazioni sulla cerimonia e spazio per lasciare un pensiero alla famiglia."
@@ -26,6 +27,16 @@ eleventyComputed:
       {% if note %}<div class="info"><strong>Informazioni</strong>{{ note }}</div>{% endif %}
     </div>
     <a class="btn btn-green" href="#condoglianze">Lascia un pensiero</a>
+    <div class="obit-share" aria-label="Condividi il necrologio">
+      <p><strong>Condividi questo necrologio</strong></p>
+      <div class="obit-share__buttons">
+        <a id="shareFacebook" class="obit-share__button" href="#" target="_blank" rel="noopener">Facebook</a>
+        <a id="shareWhatsApp" class="obit-share__button" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <button id="shareDevice" class="obit-share__button" type="button">Condividi dal telefono</button>
+        <button id="copyObitLink" class="obit-share__button obit-share__button--light" type="button">Copia link per Instagram</button>
+      </div>
+      <small id="copyObitStatus" role="status" aria-live="polite"></small>
+    </div>
   </article>
 </div></div></section>
 <section id="condoglianze" class="section condolences-section"><div class="container">
@@ -48,4 +59,18 @@ const url=window.location.href.split('#')[0]+'#condoglianze';
 const box=document.getElementById('qrcode');
 if(box&&window.QRCode)new QRCode(box,{text:url,width:220,height:220,colorDark:'#063a2a',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.H});
 const dl=document.getElementById('downloadQr');if(dl)dl.addEventListener('click',()=>{const canvas=box.querySelector('canvas'),img=box.querySelector('img');const data=canvas?canvas.toDataURL('image/png'):img.src;const a=document.createElement('a');a.href=data;a.download='qr-{{ page.fileSlug }}.png';a.click();});
+const obituaryUrl=window.location.href.split('#')[0];
+const shareText='Necrologio di {{ nome_completo }} – Cerimonie Funebri San Pietro';
+const facebook=document.getElementById('shareFacebook');
+const whatsapp=document.getElementById('shareWhatsApp');
+const shareDevice=document.getElementById('shareDevice');
+const copyLink=document.getElementById('copyObitLink');
+const copyStatus=document.getElementById('copyObitStatus');
+if(facebook)facebook.href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(obituaryUrl);
+if(whatsapp)whatsapp.href='https://wa.me/?text='+encodeURIComponent(shareText+'\n'+obituaryUrl);
+if(shareDevice){
+  if(!navigator.share)shareDevice.hidden=true;
+  shareDevice.addEventListener('click',async()=>{try{await navigator.share({title:shareText,text:shareText,url:obituaryUrl})}catch(error){}});
+}
+if(copyLink)copyLink.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(obituaryUrl);copyStatus.textContent='Link copiato. Ora puoi incollarlo su Instagram.'}catch(error){copyStatus.textContent='Tieni premuto sul collegamento nella barra del browser per copiarlo.'}});
 </script>
