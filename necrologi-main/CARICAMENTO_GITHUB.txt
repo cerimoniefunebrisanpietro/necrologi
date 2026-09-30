@@ -1,0 +1,50 @@
+CARICAMENTO CORRETTO SU GITHUB
+
+IMPORTANTE: NON SELEZIONARE I FILE UNO PER UNO.
+
+1. Estrai lo ZIP sul computer.
+2. Apri la cartella estratta NECROLOGI_SAN_PIETRO_REPOSITORY.
+3. Dentro devi vedere:
+   - src (cartella)
+   - .eleventy.js
+   - .gitignore
+   - netlify.toml
+   - package.json
+4. Nel repository GitHub premi:
+   Aggiungi file > Carica i file.
+5. Trascina NEL RIQUADRO BIANCO L'INTERA CARTELLA "src".
+6. Poi trascina anche i quattro file della radice.
+7. Controlla che GitHub mostri percorsi come:
+   src/admin/config.yml
+   src/_includes/base.njk
+   src/necrologi/mario-rossi.md
+   src/assets/style.css
+8. Se mostra soltanto "config.yml", "base.njk", "mario-rossi.md" senza src/,
+   annulla: significa che la struttura è stata appiattita.
+9. Conferma le modifiche.
+
+STRUTTURA CORRETTA DEL REPOSITORY
+
+src/
+  _includes/
+    base.njk
+    necrologio.njk
+  admin/
+    config.yml
+    index.html
+  assets/
+    logo.jpg
+    style.css
+    uploads/
+      foto-esempio.jpg
+  necrologi/
+    mario-rossi.md
+  archivio.njk
+  grazie.njk
+  index.njk
+  necrologi.njk
+
+.eleventy.js
+.gitignore
+netlify.toml
+package.json

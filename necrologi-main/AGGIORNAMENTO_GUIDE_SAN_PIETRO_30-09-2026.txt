@@ -1,0 +1,25 @@
+AGGIORNAMENTO SAN PIETRO - ACQUISIZIONE ORGANICA / ZERO SPESE
+Data: 30/09/2026
+
+AGGIUNTO:
+- Sezione Guide San Pietro nella home e nel menu.
+- /guide/
+- /quanto-costa-funerale-asti/
+- /urna-ceneri-asti/
+- /funerale-civile-asti/
+- Collegamenti alle pagine già esistenti: cosa fare in caso di decesso, cremazione, preventivo e Progetta il servizio.
+- CTA telefono H24 e WhatsApp.
+- Stile responsive coerente con verde/oro San Pietro.
+- Testi SEO locali senza prezzi-esca e con avvertenze sulle procedure soggette a verifica.
+
+CORRETTO:
+- Immagine mancante servizio-elenco.jpg nella pagina Onoranze Funebri Asti, sostituita con il carro funebre già presente nel progetto.
+
+NON MODIFICATO:
+- Necrologi esistenti e relativo archivio.
+- Area admin.
+- Configuratore Progetta il servizio.
+- Contatti, numero H24, sede e branding.
+
+PUBBLICAZIONE:
+Caricare il contenuto di questo pacchetto nel repository GitHub già collegato a Netlify. Netlify eseguirà npm run build come già configurato.

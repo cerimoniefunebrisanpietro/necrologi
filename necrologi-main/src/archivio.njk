@@ -1,0 +1,11 @@
+---
+layout: base.njk
+title: Archivio necrologi
+permalink: /archivio/index.html
+---
+<main><section class="hero"><div class="container"><h1>Archivio necrologi</h1><p>I ricordi pubblicati in precedenza.</p></div></section>
+<section class="alt"><div class="container"><div class="grid">
+{% for item in collections.necrologiArchiviati %}
+<article class="card"><img src="{{ item.data.foto }}" alt="Foto di {{ item.data.nome_completo }}"><div class="card-body"><span class="badge">Archiviato</span><h2>{{ item.data.nome_completo }}</h2><p class="meta">{{ item.data.data_nascita | dateIt }} — {{ item.data.data_decesso | dateIt }}</p><a class="btn btn-dark" href="{{ item.url }}">Apri il ricordo</a></div></article>
+{% else %}<div class="empty">L'archivio è ancora vuoto.</div>{% endfor %}
+</div></div></section></main>

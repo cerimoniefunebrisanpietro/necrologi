@@ -1,0 +1,19 @@
+PACCHETTO CORRETTO - CERIMONIE FUNEBRI SAN PIETRO
+
+PRIMA DEL CARICAMENTO, SU GITHUB ELIMINARE UNA SOLA VOLTA:
+- src/robots.txt.njk
+- src/sitemap.xml.njk
+
+Questi sono i due file duplicati introdotti dal caricamento precedente.
+
+DOPO L'ELIMINAZIONE:
+1. Decomprimere questo ZIP.
+2. Su GitHub aprire Add file > Upload files.
+3. Caricare tutto il contenuto estratto.
+4. Confermare con Commit changes sul ramo main.
+
+Il pacchetto utilizza esclusivamente:
+- src/robots.njk
+- src/sitemap.njk
+
+Non contiene robots.txt.njk né sitemap.xml.njk.

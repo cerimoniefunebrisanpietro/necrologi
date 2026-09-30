@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: Necrologi e condoglianze online
+permalink: /necrologi/index.html
+---
+<main><section class="hero"><div class="container"><h1>Necrologi e condoglianze online</h1><p>Un luogo riservato per ricordare e manifestare vicinanza alle famiglie.</p></div></section>
+<section class="alt"><div class="container">
+<div class="notice"><strong>Privacy:</strong> ogni necrologio viene pubblicato esclusivamente con l'autorizzazione della famiglia.</div>
+<div class="toolbar"><input id="search" type="search" placeholder="Cerca per nome e cognome"></div>
+<div class="grid" id="cards">
+{% for item in collections.necrologiAttivi %}
+<article class="card" data-name="{{ item.data.nome_completo | lower }}">
+<img src="{{ item.data.foto }}" alt="Foto di {{ item.data.nome_completo }}"><div class="card-body"><h2>{{ item.data.nome_completo }}</h2><p class="meta">{{ item.data.data_nascita | dateIt }} — {{ item.data.data_decesso | dateIt }}</p><p>{{ item.data.sommario }}</p><a class="btn btn-dark" href="{{ item.url }}">Apri il necrologio</a></div>
+</article>
+{% else %}<div class="empty">Al momento non sono presenti necrologi pubblicati.</div>{% endfor %}
+</div></div></section></main>
+<script>
+const input=document.getElementById('search');
+input.addEventListener('input',()=>{const q=input.value.toLowerCase().trim();document.querySelectorAll('[data-name]').forEach(c=>c.style.display=c.dataset.name.includes(q)?'':'none')});
+</script>

@@ -1,0 +1,13 @@
+PACCHETTO AUTOCORRETTIVO CERIMONIE FUNEBRI SAN PIETRO
+
+Caricare tutto il contenuto estratto su GitHub con Add file > Upload files.
+Confermare con Commit changes sul ramo main.
+
+Non è necessario eliminare manualmente file: questo pacchetto sovrascrive e
+disattiva automaticamente le vecchie copie che provocavano i conflitti.
+
+Le pagine effettive sono:
+- src/cremazione-asti/index.njk
+- src/cosa-fare-decesso-asti/index.njk
+- src/robots.njk
+- src/sitemap.njk

@@ -1,0 +1,8 @@
+AGGIORNAMENTO TECNICO SEO - 15/09/2026
+
+Modifiche eseguite senza alterare struttura, testi, grafica o sistema necrologi:
+1. Corretto il file src/assets/logo-san-pietro.jpg rimuovendo lo spazio bianco eccessivo che rendeva il logo microscopico in header e footer.
+2. Aggiornato src/sitemap.njk inserendo le pagine SEO di servizio gia esistenti nel sito.
+3. Nessuna modifica ai file dei necrologi, alle collezioni Eleventy o alle funzioni di pubblicazione/condoglianze.
+
+Dopo la pubblicazione su GitHub/Netlify, inviare nuovamente sitemap.xml in Google Search Console.

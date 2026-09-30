@@ -1,0 +1,19 @@
+CERIMONIE FUNEBRI SAN PIETRO - VERSIONE PREMIUM CON GESTIONALE NECROLOGI
+
+Questa versione mantiene il gestionale GitHub/Decap CMS già presente e aggiunge:
+- nuova grafica verde/oro/avorio;
+- logo originale ben visibile in testata e footer;
+- immagini coordinate nelle sezioni principali;
+- ultimi necrologi in Home;
+- pagina Necrologi e Archivio;
+- pagina singolo necrologio con QR e modulo condoglianze;
+- area riservata /admin/ per inserire e modificare i necrologi.
+
+Netlify:
+Build command: npm run build
+Publish directory: _site
+
+IMPORTANTE:
+Il CMS è configurato sul repository GitHub cerimoniefunebrisanpietro/necrologi, branch main.
+L'URL configurato è temporaneamente https://cerimoniefunebrisanpietr.netlify.app
+Se in futuro viene recuperato il dominio con la "o" finale, aggiornare site_url e display_url in src/admin/config.yml.
