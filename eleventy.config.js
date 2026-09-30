@@ -1,16 +1,11 @@
 const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
+  // Tutti gli asset del sito vengono copiati una sola volta da src/assets.
+  // Evitare copie aggiuntive dalla cartella /assets della root: causano
+  // conflitti Eleventy quando esistono file con lo stesso nome.
   eleventyConfig.addPassthroughCopy({
     "src/assets": "assets",
-  });
-
-  // Immagini reali caricate nella cartella assets della root.
-  // Copia esplicita per evitare conflitti con src/assets durante il build Netlify.
-  eleventyConfig.addPassthroughCopy({
-    "assets/ita.jpg": "assets/ita.jpg",
-    "assets/sq.jpg": "assets/sq.jpg",
-    "assets/rrr.jpg": "assets/rrr.jpg",
   });
 
   eleventyConfig.addPassthroughCopy({
