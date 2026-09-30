@@ -1,0 +1,22 @@
+SAN PIETRO – ALBANIA – PACCHETTO ELEVENTY COMPLETO
+
+Questo ZIP contiene tutti i file da aggiungere/sostituire per l'aggiornamento Albania.
+NON elimina e NON contiene la cartella necrologi: i necrologi esistenti devono restare nel repository.
+
+SU GITHUB:
+1. Apri il repository del sito.
+2. Sostituisci src/index.njk con quello contenuto qui.
+3. Aggiungi src/shqip.njk.
+4. Aggiungi src/assets/albania-addon.css.
+5. Sostituisci src/_includes/base.njk con quello contenuto qui.
+6. NON cancellare src/necrologi, admin, archivio, assets esistenti, package.json, eleventy.config.js o netlify.toml.
+7. Commit delle modifiche. Netlify farà automaticamente la build.
+
+RISULTATO:
+- bandiera Albania e rimpatri Italia → Albania in Home
+- pagina /shqip/
+- numero Albania +355 69 375 4578
+- WhatsApp Albania
+- sezione colleghi albanesi
+- recapiti consolari nella pagina Albania
+- link 🇦🇱 Shqip nel menu
