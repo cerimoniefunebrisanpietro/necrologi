@@ -3,7 +3,14 @@ const { DateTime } = require("luxon");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "src/assets": "assets",
-    "assets": "assets",
+  });
+
+  // Immagini reali caricate nella cartella assets della root.
+  // Copia esplicita per evitare conflitti con src/assets durante il build Netlify.
+  eleventyConfig.addPassthroughCopy({
+    "assets/ita.jpg": "assets/ita.jpg",
+    "assets/sq.jpg": "assets/sq.jpg",
+    "assets/rrr.jpg": "assets/rrr.jpg",
   });
 
   eleventyConfig.addPassthroughCopy({
