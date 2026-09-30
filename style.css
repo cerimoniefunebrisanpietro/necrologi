@@ -1,6 +1,69 @@
----
-layout: base.njk
-title: Messaggio ricevuto
-permalink: /grazie/index.html
----
-<main><section class="alt"><div class="container" style="max-width:720px;text-align:center"><h1>Messaggio ricevuto</h1><p>Grazie. La condoglianza è stata inviata e sarà verificata prima dell'eventuale pubblicazione.</p><a class="btn btn-dark" href="/necrologi/">Torna ai necrologi</a></div></section></main>
+
+:root{
+  --navy:#172a3f;--navy2:#0f1f30;--gold:#b78b35;--ivory:#f7f3eb;
+  --text:#2b2b2b;--white:#fff;--muted:#6a6a6a
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);line-height:1.65;background:#fff}
+a{color:inherit}
+.container{max-width:1180px;margin:auto;padding:0 22px}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);border-bottom:1px solid #e9e4db}
+.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand img{height:58px;width:auto;display:block}
+nav a{text-decoration:none;margin-left:18px;font-size:.95rem}
+nav a:hover{color:var(--gold)}
+.hero{
+  min-height:76vh;display:grid;place-items:center;text-align:center;color:white;padding:90px 20px;
+  background:
+    linear-gradient(rgba(15,31,48,.80),rgba(15,31,48,.84)),
+    radial-gradient(circle at top,#70869c,#172a3f)
+}
+.hero-inner{max-width:900px}
+.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.78rem;color:#eadcc1}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
+h1{font-size:clamp(2.6rem,6vw,4.9rem);font-weight:500;margin:14px 0 18px}
+h2{font-size:clamp(2rem,4vw,3rem);color:var(--navy)}
+.hero p{font-size:1.16rem;max-width:760px;margin:0 auto 28px}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:bold;padding:14px 22px;border-radius:5px;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--gold);color:var(--navy2)}
+.btn-secondary{border:1px solid #fff;color:#fff}
+section{padding:78px 0}
+.alt{background:var(--ivory)}
+.section-title{text-align:center;max-width:780px;margin:0 auto 42px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid #e6e0d6;border-radius:8px;padding:28px;box-shadow:0 10px 28px rgba(23,42,63,.06)}
+.card h3{color:var(--navy);margin-top:0}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+.panel{background:var(--navy);color:#fff;padding:34px;border-radius:8px}
+.panel h3{color:#eadcc1}
+.list{padding-left:20px}
+.steps{max-width:900px;margin:auto}
+.step{display:grid;grid-template-columns:52px 1fr;gap:16px;margin:24px 0}
+.num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--navy2);font-weight:bold}
+.faq details{background:#fff;border:1px solid #e6e0d6;border-radius:7px;padding:18px 20px;margin:12px 0}
+.faq summary{font-weight:bold;cursor:pointer;color:var(--navy)}
+.contact{background:var(--navy);color:#fff}
+.contact h2,.contact h3{color:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact-box{background:rgba(255,255,255,.08);padding:28px;border-radius:8px}
+.map{width:100%;min-height:340px;border:0;border-radius:8px}
+footer{background:var(--navy2);color:#d9e0e7;text-align:center;padding:28px 20px;font-size:.9rem}
+footer a{margin:0 6px}
+.float-call,.float-wa{position:fixed;right:18px;z-index:60;text-decoration:none;font-weight:bold;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.float-call{bottom:18px;background:var(--gold);color:var(--navy2);padding:13px 18px}
+.float-wa{bottom:76px;background:#fff;color:var(--navy2);padding:12px 16px;border:1px solid #ddd}
+.legal{max-width:900px;margin:40px auto;padding:0 20px}
+.legal h1,.legal h2{color:var(--navy)}
+@media(max-width:850px){
+  nav{display:none}.grid-3,.two,.contact-grid{grid-template-columns:1fr}
+  section{padding:58px 0}.brand img{height:48px}
+}
+
+/* SEZIONE ALBANIA */
+.lang-switch{display:flex;gap:8px;align-items:center;margin-left:18px}.lang-switch a{padding:7px 10px;border:1px solid rgba(255,255,255,.35);border-radius:999px;text-decoration:none;font-weight:700}.albania-strip{background:#b10f1f;color:#fff;padding:15px 20px;text-align:center;font-weight:700}.albania-strip a{color:#fff;text-decoration:none}.albania-card{border:1px solid #d8c28c;background:linear-gradient(135deg,#fff,#fbf7ec);position:relative;overflow:hidden}.albania-card:before{content:'🇦🇱';position:absolute;right:18px;top:10px;font-size:54px;opacity:.15}.albania-card .btn{margin-top:12px}.flag-title{font-size:1.15em}.albania-hero{background:linear-gradient(rgba(20,35,28,.78),rgba(20,35,28,.86)),url('assets/logo-san-pietro.jpeg') center/cover no-repeat;min-height:68vh}.albania-hero .eyebrow{color:#f0d78b}.albania-hero h1{max-width:900px}.albania-red{color:#b10f1f}.service-checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}.service-check{padding:18px;border-left:4px solid #b10f1f;background:#fff;box-shadow:0 5px 18px rgba(0,0,0,.07)}.partner-box{background:#172a21;color:#fff;border-radius:12px;padding:30px}.partner-box a{color:#f0d78b}.albania-contact{font-size:1.35rem;font-weight:800}.albania-contact a{text-decoration:none}.route{font-size:1.2rem;font-weight:700;letter-spacing:.02em}.eagle{font-size:48px;line-height:1}.albania-footer-note{font-size:.9rem;opacity:.85}@media(max-width:850px){.lang-switch{margin-left:auto}.service-checks{grid-template-columns:1fr}.albania-hero{min-height:72vh}}
+
+.albania-home-flag{font-size:5rem;line-height:1;margin-bottom:14px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.12))}
+@media(max-width:600px){.albania-home-flag{font-size:4.2rem}}
