@@ -1,10 +1,3 @@
-PACCHETTO MINIMO - GESTIONALE NECROLOGI SAN PIETRO
-
-Su GitHub, repository: cerimoniefunebrisanpietro/necrologi
-caricare il contenuto di questo pacchetto nella ROOT del repository.
-
-Il pacchetto contiene solo:
-src/admin/index.html
-src/admin/config.yml
-
-Non contiene il resto del sito e non crea cartelle duplicate.
+QUESTO È IL PACCHETTO CORRETTO V2.
+Sostituisce esclusivamente src/admin/index.html e src/admin/config.yml.
+Dopo il commit attendere il deploy Netlify e aprire /admin/ in una nuova scheda privata/incognito.
