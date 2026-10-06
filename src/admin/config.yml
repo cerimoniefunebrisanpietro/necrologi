@@ -21,13 +21,17 @@ collections:
     slug: "{{nome_completo}}"
     extension: "md"
     format: "frontmatter"
-    media_folder: "../assets/uploads"
-    public_folder: "/assets/uploads"
     summary: "{{nome_completo}} — {{data_decesso}}"
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "necrologio.njk"}
       - {label: "Nome e cognome", name: "nome_completo", widget: "string"}
-      - {label: "Fotografia", name: "foto", widget: "image", choose_url: false, allow_multiple: false, media_library: {config: {multiple: false}}}
+      - label: "Fotografia"
+        name: "foto"
+        widget: "image"
+        choose_url: false
+        allow_multiple: false
+        media_folder: "/src/assets/uploads"
+        public_folder: "/assets/uploads"
       - {label: "Data di nascita", name: "data_nascita", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD"}
       - {label: "Data del decesso", name: "data_decesso", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD"}
       - {label: "Sommario breve", name: "sommario", widget: "text"}
