@@ -21,6 +21,8 @@ collections:
     slug: "{{nome_completo}}"
     extension: "md"
     format: "frontmatter"
+    editor:
+      preview: false
     summary: "{{nome_completo}} — {{data_decesso}}"
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "necrologio.njk"}
