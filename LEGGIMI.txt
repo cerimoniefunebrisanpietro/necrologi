@@ -1,37 +1,10 @@
-CERIMONIE FUNEBRI SAN PIETRO – SITO DEFINITIVO
+PACCHETTO MINIMO - GESTIONALE NECROLOGI SAN PIETRO
 
-COME PUBBLICARE SU NETLIFY
-1. Estrai il file ZIP.
-2. Apri Netlify e vai in Production deploys.
-3. Trascina l'intera cartella Cerimonie_Funebri_San_Pietro_DEFINITIVO.
-4. Attendi la scritta Published.
-5. Apri il link verde del sito.
-6. Torna su Google Search Console e premi Verifica.
+Su GitHub, repository: cerimoniefunebrisanpietro/necrologi
+caricare il contenuto di questo pacchetto nella ROOT del repository.
 
-FILE INCLUSI
-- index.html
-- cremazione.html
-- privacy.html
-- cookie.html
-- google446deb2cbc0a59aa.html
-- style.css
-- assets/logo-san-pietro.jpeg
+Il pacchetto contiene solo:
+src/admin/index.html
+src/admin/config.yml
 
-DATI INSERITI
-Telefono: 327 264 8122
-Email: IOFSANPIETRO@GMAIL.COM
-Indirizzo: Corso Savona 487, Asti
-Partita IVA: 01469490054
-
-NOTA
-Le informative legali sono una base predisposta per questa configurazione.
-Prima dell'uso commerciale definitivo è consigliata una verifica professionale.
-
-AGGIORNAMENTO ALBANIA - 30/09/2026
-- Aggiunta pagina shqip.html in lingua albanese.
-- Aggiunto selettore IT / SHQIP in home.
-- Aggiunta fascia e sezione Trasporti e rimpatri Italia-Albania.
-- Numero dedicato Albania: +355 69 375 4578.
-- CTA telefono e WhatsApp Albania H24.
-- Sezione B2B per agenzie funebri albanesi.
-- SEO Albania: title, description, hreflang, sitemap.xml e robots.txt.
+Non contiene il resto del sito e non crea cartelle duplicate.
