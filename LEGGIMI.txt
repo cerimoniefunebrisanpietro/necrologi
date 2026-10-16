@@ -1,3 +1,7 @@
-QUESTO È IL PACCHETTO CORRETTO V2.
-Sostituisce esclusivamente src/admin/index.html e src/admin/config.yml.
-Dopo il commit attendere il deploy Netlify e aprire /admin/ in una nuova scheda privata/incognito.
+CORREZIONE ORARI NECROLOGI SAN PIETRO
+Questo ZIP contiene SOLO il file di correzione, non l'intero sito.
+1. Aprire il repository GitHub cerimoniefunebrisanpietro/necrologi.
+2. Sostituire il file eleventy.config.js nella radice del repository con quello incluso.
+3. Eseguire il commit e attendere la pubblicazione del sito.
+4. Controllare un necrologio: 20:30 nel gestionale deve essere 20:30 sul sito.
+ATTENZIONE: effettuare prima un backup del file originale. La correzione non è stata testata con una build completa del repository.

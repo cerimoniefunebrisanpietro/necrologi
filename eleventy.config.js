@@ -1,16 +1,8 @@
 const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
-  // Tutti gli asset del sito vengono copiati una sola volta da src/assets.
-  // Evitare copie aggiuntive dalla cartella /assets della root: causano
-  // conflitti Eleventy quando esistono file con lo stesso nome.
-  eleventyConfig.addPassthroughCopy({
-    "src/assets": "assets",
-  });
-
-  eleventyConfig.addPassthroughCopy({
-    "src/admin": "admin",
-  });
+  eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
 
   function parseDate(value) {
     if (!value) return null;
@@ -26,42 +18,28 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("dateTimeIt", (value) => {
-    const dt = parseDate(value);
-    return dt ? dt.setZone("Europe/Rome").setLocale("it").toFormat("d LLLL yyyy, HH:mm") : "";
+    if (!value) return "";
+    // Gli orari del CMS sono locali, senza offset: non convertirli in un altro fuso.
+    const dt = DateTime.isDateTime(value)
+      ? value
+      : value instanceof Date
+        ? DateTime.fromJSDate(value, { zone: "utc" })
+        : DateTime.fromISO(String(value), { zone: "Europe/Rome", setZone: true });
+    return dt.isValid ? dt.setLocale("it").toFormat("d LLLL yyyy, HH:mm") : "";
   });
 
   function getNecrologi(collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("src/necrologi/*.md")
+    return collectionApi.getFilteredByGlob("src/necrologi/*.md")
       .filter((item) => item.data.pubblicato !== false)
-      .sort(
-        (a, b) =>
-          new Date(b.data.data_decesso || b.date) -
-          new Date(a.data.data_decesso || a.date)
-      );
+      .sort((a, b) => new Date(b.data.data_decesso || b.date) - new Date(a.data.data_decesso || a.date));
   }
-
   eleventyConfig.addCollection("necrologi", getNecrologi);
-
   eleventyConfig.addCollection("necrologiAttivi", (collectionApi) =>
-    getNecrologi(collectionApi).filter(
-      (item) => item.data.archiviato !== true
-    )
-  );
-
+    getNecrologi(collectionApi).filter((item) => item.data.archiviato !== true));
   eleventyConfig.addCollection("necrologiArchiviati", (collectionApi) =>
-    getNecrologi(collectionApi).filter(
-      (item) => item.data.archiviato === true
-    )
-  );
-
+    getNecrologi(collectionApi).filter((item) => item.data.archiviato === true));
   return {
-    dir: {
-      input: "src",
-      includes: "_includes",
-      output: "_site",
-    },
-    markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
+    dir: { input: "src", includes: "_includes", output: "_site" },
+    markdownTemplateEngine: "njk", htmlTemplateEngine: "njk"
   };
 };
