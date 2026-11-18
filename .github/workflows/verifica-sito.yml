@@ -1,0 +1,27 @@
+name: Verifica build sito San Pietro
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  eleventy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recupera progetto
+        uses: actions/checkout@v4
+      - name: Configura Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Installa dipendenze
+        run: npm ci
+      - name: Compila sito
+        run: npm run build
+      - name: Controlla pagine principali
+        run: |
+          test -f _site/index.html
+          test -f _site/necrologi/index.html
+          test -f _site/anniversari/index.html
