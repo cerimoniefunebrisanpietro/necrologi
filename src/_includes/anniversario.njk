@@ -1,0 +1,52 @@
+---
+layout: base.njk
+eleventyComputed:
+  title: "Anniversario di {{ nome_completo }} | Cerimonie Funebri San Pietro"
+  description: "Un ricordo per {{ nome_completo }}. Anniversario e commemorazione."
+---
+<main class="anniversary-detail">
+  <section class="detail-hero"><div class="container"><a href="/anniversari/">← Torna agli anniversari</a></div></section>
+  <section class="section detail-section">
+    <div class="container anniversary-detail__grid">
+      <div class="anniversary-detail__portrait">
+        <img src="{{ foto or '/assets/candela-ricordo-realistica.webp' }}" alt="Ricordo di {{ nome_completo }}" loading="lazy">
+      </div>
+      <article class="anniversary-detail__paper">
+        <p class="eyebrow eyebrow--dark">Cerimonie Funebri San Pietro · Nel ricordo</p>
+        <p class="anniversary-detail__count">
+          {% if numero_anniversario %}{{ numero_anniversario }}° anniversario
+          {% else %}{{ data_decesso | numeroAnniversario(data_ricorrenza) }} anniversario{% endif %}
+        </p>
+        <h1>{{ nome_completo }}</h1>
+        {% if data_nascita %}<p class="anniversary-detail__dates">{{ data_nascita | dateIt }} — {{ data_decesso | dateIt }}</p>
+        {% else %}<p class="anniversary-detail__dates">Nel ricordo dal {{ data_decesso | dateIt }}</p>{% endif %}
+        <div class="gold-rule"></div>
+        {% if testo_breve %}<p class="anniversary-detail__intro">{{ testo_breve }}</p>{% endif %}
+        <div class="anniversary-detail__message">{{ content | safe }}</div>
+        {% if famiglia %}<p class="anniversary-detail__signature">{{ famiglia }}</p>{% endif %}
+        {% if messa_data or messa_luogo %}
+        <div class="anniversary-detail__mass"><strong>Santa Messa in suffragio</strong>
+        {% if messa_data %}<p>{{ messa_data | dateTimeIt }}</p>{% endif %}
+        {% if messa_luogo %}<p>{{ messa_luogo }}</p>{% endif %}</div>
+        {% endif %}
+        <p class="anniversary-detail__date">Ricorrenza: {{ data_ricorrenza | dateIt }}</p>
+        <div class="anniversary-detail__share">
+          <a class="btn btn-green" id="annivWhatsApp" href="https://wa.me/?text=" target="_blank" rel="noopener">Condividi su WhatsApp</a>
+          <button type="button" class="btn btn-cream" id="annivCopy">Copia il collegamento</button>
+          <small id="annivFeedback" aria-live="polite"></small>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+<script>
+(function(){
+  const name=document.querySelector(".anniversary-detail__paper h1");
+  const shareText="Nel ricordo di "+(name?name.textContent.trim():"una persona cara")+" — Cerimonie Funebri San Pietro";
+  const link=window.location.href.split("#")[0];
+  const wa=document.getElementById("annivWhatsApp");
+  if(wa) wa.href="https://wa.me/?text="+encodeURIComponent(shareText+"\n"+link);
+  const btn=document.getElementById("annivCopy"),fb=document.getElementById("annivFeedback");
+  if(btn)btn.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(link);fb.textContent="Collegamento copiato."}catch(e){fb.textContent="Copia l'indirizzo dalla barra del browser."}});
+})();
+</script>

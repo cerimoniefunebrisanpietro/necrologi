@@ -39,3 +39,115 @@ h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.12;font-weigh
 .guide-home{background:#f8f4ec}.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.guide-card{display:block;min-height:220px;padding:28px;background:#fff;border:1px solid #dfd3bf;border-top:4px solid var(--gold);box-shadow:var(--shadow);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}.guide-card:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(25,39,32,.14)}.guide-card span{display:inline-flex;width:38px;height:38px;align-items:center;justify-content:center;border-radius:50%;background:var(--cream);color:#8b651f;font-weight:700}.guide-card h2,.guide-card h3{color:var(--green);font-size:1.55rem;margin:18px 0 10px}.guide-card p{margin:0;color:#59625e}.guide-card--cta{background:var(--green);color:#fff;border-color:var(--gold)}.guide-card--cta h3,.guide-card--cta p{color:#fff}.guide-note,.guide-disclaimer{margin-top:30px;padding:18px 20px;background:#f5efe5;border-left:4px solid var(--gold)}.guide-article h2{color:var(--green);font-size:2rem;margin:34px 0 10px}.guide-article h2:first-child{margin-top:0}.guide-article p{font-size:1.06rem}.choice-box{margin-top:38px;padding:30px;background:var(--cream);border:1px solid #dfd3bf}.choice-box h2{margin-top:0}.choice-box .btn{margin:6px 8px 0 0}
 @media(max-width:900px){.guide-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.guide-grid{grid-template-columns:1fr}.guide-card{min-height:0}.choice-box .btn{display:block;text-align:center;margin:10px 0 0}}
+
+
+/* ============================================================
+   SAN PIETRO · restyling istituzionale novembre 2026
+   Palette: verde bosco, avorio caldo, oro satinato.
+   Non modifica loghi, fotografie, necrologi o dati del sito.
+   ============================================================ */
+:root{
+  --green:#073c2e;
+  --green2:#06291f;
+  --gold:#b18b4c;
+  --gold2:#d9bc82;
+  --cream:#f8f5ee;
+  --cream2:#efe8db;
+  --ink:#202e29;
+  --muted:#626b63;
+  --line:#dfd5c5;
+  --shadow:0 16px 42px rgba(9,39,28,.085)
+}
+body{background:#f9f7f2;color:var(--ink)}
+.site-header{background:rgba(251,250,246,.97);border-bottom:1px solid rgba(176,139,76,.35);box-shadow:0 7px 22px rgba(4,40,29,.055)}
+.top-strip{background:#072d23}
+.site-footer{background:linear-gradient(135deg,#081e17,#101e1a);border-top:2px solid #b28b4c}
+.btn,.primary-tool{transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.btn:hover,.primary-tool:hover{transform:translateY(-1px);box-shadow:0 9px 20px rgba(9,34,24,.14)}
+.section-head h2{letter-spacing:-.02em}
+.guide-home,.necro-list-section,.condolences-section,.sede-authentic-gallery,.anniversary-list-section,.anniversary-request-section{
+  background-color:#f9f7f1;
+  background-image:radial-gradient(circle at 8% 16%,rgba(210,177,115,.10),transparent 32%),
+    radial-gradient(circle at 95% 84%,rgba(30,76,56,.055),transparent 35%);
+  background-repeat:no-repeat
+}
+.obituaries-home{background:linear-gradient(125deg,#f3eee4 0%,#fbf9f4 55%,#efe8dc 100%)}
+.detail-section{background:linear-gradient(120deg,#f1ecdf,#faf8f3 55%,#f1eade)}
+.planner-page{background:#f9f7f1}
+.necro-hero{border-bottom:3px solid #c4a366}
+.guide-card,.home-necro-card,.memory-card,.necro-card,.form,.obit-paper,.estimate-card,.planner-form fieldset,.situation-panel{
+  background:#fffefb;
+  border-color:#dfd4c3;
+  box-shadow:0 12px 32px rgba(9,39,28,.09)
+}
+.home-necro-card,.memory-card,.necro-card,.guide-card,.obit-paper,.form,.estimate-card,.situation-panel{border-radius:7px;overflow:hidden}
+.necro-card__photo{background:#fffefb}
+.necro-card__photo img{border-color:#e6dbca}
+.necro-card__body{background:linear-gradient(#fffefc,#faf7f1)}
+.necro-card__link,.anniversary-card__link{color:#0b4634}
+.notice{border:1px solid #e2d5bf;border-left:4px solid var(--gold);background:#fffdf8;border-radius:4px}
+.photo-service{border-radius:8px}
+.contact-band{background:linear-gradient(125deg,#073b2d,#092a21)}
+.planner-hero,.detail-hero{background:linear-gradient(115deg,#062b21,#0b4332)}
+:focus-visible{outline:3px solid #b48a43;outline-offset:3px}
+
+/* Anniversari, coerenti con le pagine necrologi */
+.anniversaries-hero{
+  background:linear-gradient(110deg,rgba(2,33,25,.91),rgba(5,43,32,.75)),
+    url('/assets/servizio-fiori-v2.webp') center/cover
+}
+.anniversaries-hero p:last-child{font-family:Georgia,serif;font-size:1.15rem;max-width:660px;margin:20px auto 0}
+.anniversary-list-section{padding-top:74px}
+.anniversary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:26px;align-items:stretch}
+.anniversary-card{display:flex;flex-direction:column;overflow:hidden;background:#fffefb;border:1px solid #d5c6aa;border-radius:7px;box-shadow:0 16px 36px rgba(9,39,28,.10)}
+.anniversary-card__image{height:245px;display:block;background:#eee8da;overflow:hidden}
+.anniversary-card__image img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 26%;transition:transform .4s ease}
+.anniversary-card__image:hover img{transform:scale(1.025)}
+.anniversary-card__body{flex:1;padding:25px 26px 29px;text-align:center;background:linear-gradient(#fffefa,#faf7f0)}
+.anniversary-card__body .eyebrow{margin:0;font-size:.72rem}
+.anniversary-card__body h3{font-family:Georgia,serif;color:#063b2b;font-size:clamp(1.65rem,2.5vw,2.05rem);margin:11px 0}
+.anniversary-card__meta{font-family:Georgia,serif;color:#936f35;font-size:1.04rem}
+.anniversary-card__link{display:inline-block;margin-top:12px;text-decoration:none;font-weight:700;border-bottom:1px solid var(--gold);padding-bottom:4px}
+.anniversary-recurring-title{margin-top:86px}
+.anniversary-card__number{color:#6e6557}
+.anniversary-empty{margin:0 auto;text-align:center;max-width:650px;grid-column:1/-1;padding:32px;background:#fffdf8;border:1px solid #e5d8be}
+.anniversary-request-section{border-top:1px solid #daccb5}
+.anniversary-request-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:52px;align-items:start}
+.anniversary-request-intro{padding-top:15px}
+.anniversary-request-intro h2{font-size:clamp(2.3rem,4vw,3.4rem);color:var(--green);margin:8px 0 0;line-height:1.1}
+.anniversary-request-intro p{font-size:1.07rem;line-height:1.75}
+.anniversary-request-intro a{color:var(--green);font-weight:700}
+.anniversary-request-form{padding:34px;background:#fffefb;border:1px solid #d9ccb8;border-top:4px solid var(--gold);border-radius:7px;box-shadow:0 17px 37px rgba(10,36,27,.095)}
+.anniversary-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:19px}
+.anniversary-form-grid label{display:flex;flex-direction:column;gap:6px;font-size:.94rem;color:#073e2f;font-weight:700}
+.anniversary-form-grid input,.anniversary-form-grid textarea{font-weight:400;font-size:1rem;min-width:0}
+.anniversary-form-full{grid-column:1/-1}
+.anniversary-form-consent{display:flex;gap:11px;align-items:flex-start;font-size:.89rem;line-height:1.5;margin:24px 0 22px}
+.anniversary-form-consent input{width:19px;min-width:19px;height:19px;margin:2px 0 0;accent-color:var(--green)}
+.anniversary-form-consent a{color:var(--green);font-weight:700}
+.anniversary-form-help{font-size:.82rem;color:#615c52;margin-bottom:0}
+.anniversary-detail__grid{display:grid;grid-template-columns:350px minmax(0,1fr);gap:46px;align-items:start}
+.anniversary-detail__portrait img{display:block;width:100%;max-height:510px;object-fit:cover;object-position:center 20%;border:10px solid #fffdf9;outline:1px solid #c3a16b;box-shadow:var(--shadow)}
+.anniversary-detail__paper{background:#fffefb;border:1px solid #dacdb8;padding:45px 48px;box-shadow:var(--shadow);border-radius:6px}
+.anniversary-detail__paper h1{font-size:clamp(2.4rem,4vw,4.5rem);line-height:1.08;color:#073d2e;margin:12px 0}
+.anniversary-detail__count{font-family:Georgia,serif;font-size:1.25rem;color:#97743a;margin:22px 0 0}
+.anniversary-detail__dates{font-family:Georgia,serif;font-size:1.12rem;color:#695a41}
+.anniversary-detail__intro{font-family:Georgia,serif;font-size:1.3rem;line-height:1.6}
+.anniversary-detail__message{font-family:Georgia,serif;font-size:1.12rem;line-height:1.9}
+.anniversary-detail__message p{margin-bottom:1em}
+.anniversary-detail__signature{font-style:italic;color:#796441;font-family:Georgia,serif}
+.anniversary-detail__mass{border-left:3px solid var(--gold);background:#f8f4e9;padding:18px 22px;margin:30px 0}
+.anniversary-detail__mass strong{font-size:1.1rem;color:var(--green)}
+.anniversary-detail__mass p{margin:5px 0}
+.anniversary-detail__date{font-size:.9rem;color:#6c6458}
+.anniversary-detail__share{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:22px}
+.anniversary-detail__share small{display:block;width:100%;color:#726b5d}
+@media(max-width:920px){.anniversary-request-wrap,.anniversary-detail__grid{grid-template-columns:1fr;gap:28px}.anniversary-detail__portrait img{max-width:350px}}
+@media(max-width:620px){
+  .anniversary-grid,.anniversary-form-grid{grid-template-columns:1fr}
+  .anniversary-form-full{grid-column:auto}
+  .anniversary-request-form{padding:24px 19px}
+  .anniversary-detail__paper{padding:30px 23px}
+  .anniversary-detail__portrait img{max-width:100%}
+  .anniversary-card__image{height:230px}
+}

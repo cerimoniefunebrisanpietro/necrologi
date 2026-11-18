@@ -38,6 +38,33 @@ module.exports = function (eleventyConfig) {
     getNecrologi(collectionApi).filter((item) => item.data.archiviato !== true));
   eleventyConfig.addCollection("necrologiArchiviati", (collectionApi) =>
     getNecrologi(collectionApi).filter((item) => item.data.archiviato === true));
+
+  // Gli annunci commemorativi sono visibili solo dopo autorizzazione e pubblicazione.
+  eleventyConfig.addFilter("dateIso", (value) => {
+    const dt = parseDate(value);
+    return dt ? dt.toISODate() : "";
+  });
+  eleventyConfig.addFilter("numeroAnniversario", (decesso, ricorrenza) => {
+    const from = parseDate(decesso), to = parseDate(ricorrenza);
+    if (!from || !to) return "";
+    let years = to.year - from.year;
+    if (to.month < from.month || (to.month === from.month && to.day < from.day)) years--;
+    return years > 0 ? years + "°" : "";
+  });
+  eleventyConfig.addCollection("anniversari", (collectionApi) =>
+    collectionApi.getFilteredByGlob("src/anniversari/*.md")
+      .filter((item) => item.data.pubblicato === true && item.data.autorizzazione_famiglia === true)
+      .sort((a, b) => {
+        const aDate = parseDate(a.data.data_ricorrenza);
+        const bDate = parseDate(b.data.data_ricorrenza);
+        return (bDate ? bDate.toMillis() : 0) - (aDate ? aDate.toMillis() : 0);
+      }));
+  eleventyConfig.addCollection("anniversariRicorrenti", (collectionApi) =>
+    getNecrologi(collectionApi).filter((item) =>
+      item.data.anniversario_automatico === true &&
+      item.data.autorizzazione_anniversario === true &&
+      item.data.autorizzazione_famiglia === true));
+
   return {
     dir: { input: "src", includes: "_includes", output: "_site" },
     markdownTemplateEngine: "njk", htmlTemplateEngine: "njk"

@@ -40,4 +40,35 @@ collections:
       - {label: "Note", name: "note", widget: "text", required: false}
       - {label: "Autorizzazione della famiglia acquisita", name: "autorizzazione_famiglia", widget: "boolean", default: false}
       - {label: "Archiviato", name: "archiviato", widget: "hidden", default: false}
+      - {label: "Autorizzazione specifica della famiglia per le ricorrenze annuali", name: "autorizzazione_anniversario", widget: "boolean", default: false}
+      - {label: "Mostra anniversario automaticamente ogni anno", name: "anniversario_automatico", widget: "boolean", default: false}
       - {label: "Pubblicato", name: "pubblicato", widget: "boolean", default: true}
+
+  - name: "anniversari"
+    label: "Anniversari"
+    label_singular: "Anniversario"
+    folder: "src/anniversari"
+    create: true
+    delete: true
+    identifier_field: "nome_completo"
+    slug: "{{nome_completo}}-{{data_ricorrenza}}"
+    extension: "md"
+    format: "frontmatter"
+    editor:
+      preview: false
+    summary: "{{nome_completo}} — {{data_ricorrenza}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "anniversario.njk"}
+      - {label: "Nome e cognome del defunto", name: "nome_completo", widget: "string"}
+      - {label: "Fotografia", name: "foto", widget: "image", required: false, choose_url: false, allow_multiple: false}
+      - {label: "Data di nascita", name: "data_nascita", widget: "datetime", required: false, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD"}
+      - {label: "Data del decesso", name: "data_decesso", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD"}
+      - {label: "Data dell'anniversario da pubblicare", name: "data_ricorrenza", widget: "datetime", date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD"}
+      - {label: "Numero anniversario (facoltativo)", name: "numero_anniversario", widget: "number", required: false, value_type: "int", min: 1}
+      - {label: "Dedica breve", name: "testo_breve", widget: "text", required: false}
+      - {label: "Dedica completa", name: "body", widget: "markdown"}
+      - {label: "Firma della famiglia", name: "famiglia", widget: "string", required: false}
+      - {label: "Data e ora della Messa in suffragio", name: "messa_data", widget: "datetime", required: false, date_format: "DD/MM/YYYY", time_format: "HH:mm", format: "YYYY-MM-DDTHH:mm:ss"}
+      - {label: "Luogo della Messa", name: "messa_luogo", widget: "string", required: false}
+      - {label: "Autorizzazione alla pubblicazione acquisita dalla famiglia", name: "autorizzazione_famiglia", widget: "boolean", default: false}
+      - {label: "Pubblicato (approvazione finale)", name: "pubblicato", widget: "boolean", default: false}
