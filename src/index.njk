@@ -9,6 +9,14 @@ permalink: /index.html
 <section class="sp-country-area"><div class="sp-country-grid"><article class="sp-country-card"><div class="sp-country-visual sp-photo-flag"><div class="italy-flag-css" aria-label="Bandiera italiana"><i></i><i></i><i></i></div></div><div class="sp-country-copy"><h2>ITALIA</h2><p>Servizi funebri completi<br>ad Asti e nel Nord Italia</p><a class="sp-phone" href="tel:+393272648122">☎ &nbsp;+39 327 264 8122</a><a class="sp-gold-btn" href="#servizi">I NOSTRI SERVIZI →</a></div></article><article class="sp-country-card"><div class="sp-country-visual sp-photo-flag"><img src="/assets/flag-albania.png" alt="Bandiera albanese"></div><div class="sp-country-copy"><h2>ALBANIA</h2><p><b>Trasporti e rimpatri<br>Italia → Albania</b><br>Assistenza completa H24</p><a class="sp-phone" href="https://wa.me/355693754578" target="_blank" rel="noopener">☎ &nbsp;+355 69 375 4578</a><a class="sp-gold-btn" href="/shqip/">SHQIP · ZBULO SHËRBIMIN →</a></div></article></div></section>
 <section class="sp-features"><div><b>❧</b><strong>ESPERIENZA</strong><span>Anni di dedizione<br>al servizio delle famiglie</span></div><div><b>♟</b><strong>ASSISTENZA H24</strong><span>Sempre disponibili,<br>in ogni momento</span></div><div><b>▤</b><strong>PRATICHE E DOCUMENTI</strong><span>Gestione completa<br>in Italia e per l’estero</span></div><div><b>◇</b><strong>SUPPORTO INTERNAZIONALE</strong><span>Rimpatri e collaborazioni<br>con agenzie in Albania</span></div></section>
 <section id="servizi" class="sp-services"><article><img src="/assets/servizio-funerale-v2.webp" alt="Servizi funebri San Pietro"><h3>SERVIZI FUNEBRI</h3><p>Organizzazione completa della cerimonia</p><a href="/servizi-funebri-asti/">Scopri di più →</a></article><article><img src="/assets/pexels-albania-by-kierlo-305642837-17079104.jpg" alt="Trasporti e rimpatri Italia Albania"><h3>TRASPORTI E RIMPATRI<br>ITALIA – ALBANIA</h3><p>Assistenza H24 e gestione di tutte le pratiche</p><a href="/shqip/">Scopri di più →</a></article><article><img src="/assets/servizio-pratiche-v2.webp" alt="Documenti e pratiche"><h3>DOCUMENTI E PRATICHE</h3><p>Supporto per certificati, autorizzazioni e consolato</p><a href="/pratiche-funerarie-asti/">Scopri di più →</a></article><article><div class="sp-albania-tile"></div><h3>PER LE AGENZIE ALBANESI</h3><p>Collaborazioni professionali e assistenza dedicata</p><a href="/shqip/#agjencite">Scopri di più →</a></article></section>
+<section class="sp-colleghi-band" aria-labelledby="sp-colleghi-title">
+  <div class="container sp-colleghi-band__inner">
+    <div><p class="sp-colleghi-band__eyebrow">Servizi riservati alle imprese funebri</p>
+    <h2 id="sp-colleghi-title">Un carro funebre con conducente, anche per un solo servizio.</h2>
+    <p>Noleggio con autista, trasporti nazionali ed europei, personale e collaborazione operativa. Il vostro referente ad Asti, disponibile telefonicamente H24.</p></div>
+    <a href="/servizi-per-imprese-funebri/" class="sp-colleghi-band__link">Scopri i servizi per i colleghi →</a>
+  </div>
+</section>
 <section id="chi-siamo" class="sp-office"><div class="sp-office-photo"><img src="/assets/sede-strada.jpg" alt="Sede reale Cerimonie Funebri San Pietro, Corso Savona 487 Asti"></div><div><small>LA NOSTRA SEDE REALE</small><h2>Un supporto concreto<br>nei momenti più difficili</h2><p>Cerimonie Funebri San Pietro accompagna le famiglie con rispetto, discrezione e professionalità. La nostra sede è in <strong>Corso Savona 487 ad Asti</strong>.</p><a class="sp-gold-btn sp-inline" href="#contatti">CHI SIAMO →</a></div></section>
 <section class="section obituaries-home"><div class="container"><div class="section-head"><p class="eyebrow eyebrow--dark">Necrologi</p><h2>I ricordi che vivono nel cuore</h2><div class="gold-rule gold-rule--center"></div></div><div class="home-necro-grid">{% for item in collections.necrologiAttivi | reverse %}{% if loop.index <= 3 %}<article class="home-necro-card"><img src="{{ item.data.foto }}" alt="Foto di {{ item.data.nome_completo }}"><div><h3>{{ item.data.nome_completo }}</h3><p>{{ item.data.data_nascita | dateIt }} — {{ item.data.data_decesso | dateIt }}</p><a href="{{ item.url }}">Leggi il necrologio →</a></div></article>{% endif %}{% else %}<div class="empty">Al momento non sono presenti necrologi pubblicati.</div>{% endfor %}<a class="memory-card" href="/necrologi/"><img class="memory-candle" src="/assets/candela-ricordo-realistica.webp" alt="Candela accesa"><strong>Vai a tutti i necrologi</strong></a></div></div></section>
 
@@ -168,4 +176,14 @@ permalink: /index.html
   .sp-home .sp-features{padding:20px 14px}
   .sp-home .sp-office-photo img{max-height:330px}
 }
+</style>
+
+<style>
+.sp-home .sp-colleghi-band{background:linear-gradient(105deg,#0a382b,#063025);border-top:2px solid #ba9658;border-bottom:2px solid #ba9658;color:#fff;padding:48px 0}
+.sp-home .sp-colleghi-band__inner{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:46px}
+.sp-home .sp-colleghi-band__eyebrow{text-transform:uppercase;letter-spacing:.15em;color:#ddc38b;font:700 .76rem Arial,sans-serif;margin:0 0 10px}
+.sp-home .sp-colleghi-band h2{font:400 clamp(1.8rem,3vw,2.75rem)/1.15 Georgia,serif;color:#fff;max-width:750px;margin:0 0 12px}
+.sp-home .sp-colleghi-band p:not(.sp-colleghi-band__eyebrow){color:#ecede5;max-width:760px;font-family:Georgia,serif;font-size:1.03rem;line-height:1.5;margin:0}
+.sp-home .sp-colleghi-band__link{font:700 .94rem Georgia,serif;color:#15352a;text-decoration:none;text-align:center;background:linear-gradient(#f1d899,#d9b56b);padding:15px 20px;border-radius:5px;border:1px solid #f2dbac;max-width:320px}
+@media(max-width:850px){.sp-home .sp-colleghi-band__inner{grid-template-columns:1fr;gap:22px}.sp-home .sp-colleghi-band__link{max-width:100%}}
 </style>
