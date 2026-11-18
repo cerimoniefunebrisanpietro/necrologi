@@ -54,7 +54,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("anniversari", (collectionApi) =>
     collectionApi.getFilteredByGlob("src/anniversari/*.md")
       .filter((item) => item.data.pubblicato === true && item.data.autorizzazione_famiglia === true)
-      .sort((a, b) => String(b.data.data_ricorrenza || "").localeCompare(String(a.data.data_ricorrenza || ""))));
+      .sort((a, b) => {
+        const aDate = parseDate(a.data.data_ricorrenza);
+        const bDate = parseDate(b.data.data_ricorrenza);
+        return (bDate ? bDate.toMillis() : 0) - (aDate ? aDate.toMillis() : 0);
+      }));
   eleventyConfig.addCollection("anniversariRicorrenti", (collectionApi) =>
     getNecrologi(collectionApi).filter((item) =>
       item.data.anniversario_automatico === true &&
