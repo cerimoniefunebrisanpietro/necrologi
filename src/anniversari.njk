@@ -1,0 +1,65 @@
+---
+layout: base.njk
+title: Anniversari e ricordi | Cerimonie Funebri San Pietro
+description: "Anniversari e ricordi di Cerimonie Funebri San Pietro ad Asti. Un pensiero che rimane nel tempo."
+permalink: /anniversari/index.html
+---
+<main class="anniversaries-page">
+<section class="necro-hero anniversaries-hero"><div class="container"><p class="eyebrow">Cerimonie Funebri San Pietro</p><h1>Anniversari e ricordi</h1><div class="gold-rule gold-rule--center"></div><p>Il tempo passa, l’amore e il ricordo rimangono.</p></div></section>
+<section class="section anniversary-list-section"><div class="container">
+<div class="section-head"><p class="eyebrow eyebrow--dark">Un pensiero che dura nel tempo</p><h2>Gli anniversari pubblicati</h2><div class="gold-rule gold-rule--center"></div><p>Ricordi condivisi con il consenso delle famiglie.</p></div>
+<div class="anniversary-grid">
+{% for item in collections.anniversari %}
+<article class="anniversary-card" data-name="{{ item.data.nome_completo | lower }}">
+  <a class="anniversary-card__image" href="{{ item.url }}"><img loading="lazy" src="{{ item.data.foto or '/assets/candela-ricordo-realistica.webp' }}" alt="Nel ricordo di {{ item.data.nome_completo }}"></a>
+  <div class="anniversary-card__body"><p class="eyebrow eyebrow--dark">Anniversario</p><h3>{{ item.data.nome_completo }}</h3><p class="anniversary-card__meta">{{ item.data.data_ricorrenza | dateIt }}{% if item.data.numero_anniversario %} · {{ item.data.numero_anniversario }}° anniversario{% endif %}</p>
+  {% if item.data.testo_breve %}<p>{{ item.data.testo_breve }}</p>{% endif %}
+  <a href="{{ item.url }}" class="anniversary-card__link">Leggi il ricordo →</a></div>
+</article>
+{% else %}<p class="anniversary-empty">Non sono ancora presenti annunci di anniversario in questa sezione.</p>{% endfor %}
+</div>
+{% if collections.anniversariRicorrenti.length %}
+<div class="section-head anniversary-recurring-title"><p class="eyebrow eyebrow--dark">Nel ricordo, ogni anno</p><h2>Ricorrenze annuali</h2><div class="gold-rule gold-rule--center"></div><p>Ricordi collegati ai necrologi, pubblicati con specifica autorizzazione della famiglia.</p></div>
+<div class="anniversary-grid">
+{% for item in collections.anniversariRicorrenti %}
+<article class="anniversary-card">
+  <a class="anniversary-card__image" href="{{ item.url }}"><img loading="lazy" src="{{ item.data.foto or '/assets/candela-ricordo-realistica.webp' }}" alt="Ricordo di {{ item.data.nome_completo }}"></a>
+  <div class="anniversary-card__body"><p class="eyebrow eyebrow--dark">Ricordo annuale</p><h3>{{ item.data.nome_completo }}</h3>
+  <p class="anniversary-card__meta">Dal {{ item.data.data_decesso | dateIt }}</p>
+  <p class="anniversary-card__number" data-anniversary-year="{{ item.data.data_decesso | dateIso }}"></p>
+  <a href="{{ item.url }}" class="anniversary-card__link">Apri il ricordo →</a></div>
+</article>
+{% endfor %}
+</div>
+{% endif %}
+</div></section>
+<section id="richiedi-anniversario" class="section anniversary-request-section"><div class="container anniversary-request-wrap">
+<div class="anniversary-request-intro"><p class="eyebrow">Cerimonie Funebri San Pietro</p><h2>Richiedi la pubblicazione di un anniversario</h2><div class="gold-rule"></div><p>Un ricordo personale, una dedica o le informazioni su una Santa Messa in suffragio. Invia la richiesta e ti ricontatteremo per verificare i dettagli e l’autorizzazione familiare.</p><p><strong>Nessun annuncio viene pubblicato automaticamente.</strong> La richiesta viene verificata prima di ogni pubblicazione.</p><p>Per informazioni: <a href="tel:+393272648122">327 264 8122</a>.</p></div>
+<form class="anniversary-request-form" name="richiesta-anniversario" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/grazie/">
+  <input type="hidden" name="form-name" value="richiesta-anniversario">
+  <p class="planner-trap"><label>Non compilare <input name="bot-field"></label></p>
+  <div class="anniversary-form-grid">
+    <label>Nome e cognome del defunto *<input name="defunto" required autocomplete="off"></label>
+    <label>Data del decesso *<input name="data_decesso" type="date" required></label>
+    <label>Nome e cognome del richiedente *<input name="richiedente" required autocomplete="name"></label>
+    <label>Email per essere ricontattati *<input name="email" type="email" required autocomplete="email"></label>
+    <label>Recapito telefonico (facoltativo)<input name="telefono" type="tel" autocomplete="tel"></label>
+    <label>Data desiderata della ricorrenza<input name="data_ricorrenza" type="date"></label>
+    <label class="anniversary-form-full">Dedica o indicazioni (facoltative)<textarea name="dedica" maxlength="1500" rows="4"></textarea></label>
+  </div>
+  <label class="anniversary-form-consent"><input name="privacy" type="checkbox" required><span>Ho letto l’<a href="/privacy/" target="_blank" rel="noopener">informativa privacy</a> e richiedo di essere ricontattato per questa domanda. *</span></label>
+  <button type="submit" class="btn btn-gold">Invia la richiesta riservata</button>
+  <p class="anniversary-form-help">La pubblicazione richiede una successiva autorizzazione della famiglia.</p>
+</form>
+</div></section>
+</main>
+<script>
+(function(){
+  const nowParts=new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Rome",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+  const today={};for(const p of nowParts)if(p.type!=="literal")today[p.type]=Number(p.value);
+  document.querySelectorAll("[data-anniversary-year]").forEach(el=>{
+    const original=el.getAttribute("data-anniversary-year");const year=Number(original.slice(0,4));
+    if(year && today.year>year) el.textContent=(today.year-year)+"° anniversario nel "+today.year;
+  });
+})();
+</script>
