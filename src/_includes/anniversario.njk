@@ -41,7 +41,8 @@ eleventyComputed:
 </main>
 <script>
 (function(){
-  const shareText="Nel ricordo di {{ nome_completo | escape }} — Cerimonie Funebri San Pietro";
+  const name=document.querySelector(".anniversary-detail__paper h1");
+  const shareText="Nel ricordo di "+(name?name.textContent.trim():"una persona cara")+" — Cerimonie Funebri San Pietro";
   const link=window.location.href.split("#")[0];
   const wa=document.getElementById("annivWhatsApp");
   if(wa) wa.href="https://wa.me/?text="+encodeURIComponent(shareText+"\n"+link);
